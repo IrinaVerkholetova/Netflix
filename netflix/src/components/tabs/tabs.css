@@ -1,0 +1,38 @@
+@import '~antd/dist/antd.css';
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 35px;
+}
+
+.sortBy {
+  display: inline;
+  margin: 11px 0;
+  color: #fff;
+  font-size: 16px;
+}
+/* .sortBy span {
+  padding: 0 15px;
+} */
+
+.results {
+  padding: 12px 0;
+}
+
+.ant-tabs {
+  width: 100%;
+}
+
+.ant-tabs-tab-btn {
+  color: #fff;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff;
+  border-color: #f65261;
+}
+
+.ant-tabs-tab {
+  font-size: 16px;
+}
