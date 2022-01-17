@@ -1,9 +1,15 @@
 @import '~antd/dist/antd.css';
 
-.ant-tabs-ink-bar {
-  border-bottom: 2px solid #f65261;
+.select {
+  width: 145px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
 }
 
+.ant-tabs-extra-content {
+  width: 240px;
+}
 .ant-select-arrow {
   color: #f65261;
 }
@@ -11,10 +17,8 @@
   background: transparent;
   border: none;
 }
-.ant-tabs-extra-content {
-  width: 240px;
-}
 .ant-select-focuced:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
   .ant-select-selector {
   box-shadow: none !important;
+  border-color: transparent;
 }

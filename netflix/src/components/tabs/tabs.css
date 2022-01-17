@@ -1,6 +1,6 @@
 @import '~antd/dist/antd.css';
 
-.filters {
+.tabs {
   display: flex;
   justify-content: space-between;
   padding: 0 35px;
@@ -9,30 +9,27 @@
 .sortBy {
   display: inline;
   margin: 11px 0;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 16px;
-}
-/* .sortBy span {
   padding: 0 15px;
-} */
+}
 
-.results {
+.result {
   padding: 12px 0;
 }
 
 .ant-tabs {
   width: 100%;
 }
-
 .ant-tabs-tab-btn {
   color: #fff;
 }
-
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #fff;
-  border-color: #f65261;
 }
-
 .ant-tabs-tab {
   font-size: 16px;
+}
+.ant-tabs-ink-bar {
+  border-bottom: 2px solid #f65261;
 }

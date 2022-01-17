@@ -7,10 +7,10 @@ export const TabsCategories = () => {
   const { TabPane } = Tabs;
   const callback = (key) => console.log(key);
   const operations = (
-    <div className="sortBy">
-      <span style={{ padding: '0 15px' }}>SORT BY</span>
+    <>
+      <span className="sortBy">SORT BY</span>
       <ReleaseDate />
-    </div>
+    </>
   );
   const categories = [
     { key: 1, category: 'ALL' },
@@ -21,17 +21,12 @@ export const TabsCategories = () => {
   ];
 
   return (
-    <div className="filters">
-      <Tabs
-        defaultActiveKey="1"
-        onChange={callback}
-        tabBarExtraContent={operations}
-        tabPosition={'top'}
-      >
+    <div className="tabs">
+      <Tabs defaultActiveKey="1" onChange={callback} tabBarExtraContent={operations}>
         {categories.map((item) => {
           return (
             <TabPane tab={item.category} key={item.key}>
-              <div className="results"> movies found</div>
+              <div className="result"> movies found</div>
               Content of Tab Pane {item.category}
             </TabPane>
           );
