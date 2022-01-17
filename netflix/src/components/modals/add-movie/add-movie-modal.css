@@ -24,6 +24,27 @@ h3 {
   border-color: transparent;
 }
 
+.formContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.column {
+  width: 47%;
+}
+
+.item {
+  width: 100%;
+  margin: 0 15px 15px 0;
+}
+
+.selectGenre {
+  background-color: rgba(50, 50, 50, 0.95);
+  width: 100%;
+  border-radius: 4px;
+}
+
 .ant-btn,
 .ant-btn:hover,
 .ant-btn:active {
@@ -52,7 +73,7 @@ h3 {
 }
 
 .ant-modal-body {
-  padding: 38px 0;
+  padding: 30px 0;
 }
 
 .ant-modal-footer {
@@ -65,14 +86,40 @@ h3 {
   color: #fff;
 }
 
-.ant-modal-close,
-.ant-modal-close:hover {
-  color: #fff;
-}
-
-.ant-input {
+.ant-input,
+.ant-picker {
   background-color: rgba(50, 50, 50, 0.95) !important;
   color: rgba(255, 255, 255, 1) !important;
   border: none;
   border-radius: 4px;
+  width: 100%;
+}
+
+.ant-input-group-addon {
+  background-color: rgba(50, 50, 50, 0.95);
+  color: rgba(255, 255, 255, 1);
+}
+
+.ant-picker-input > input {
+  color: #fff;
+}
+
+.ant-modal-close,
+.ant-modal-close:hover,
+.ant-picker-suffix,
+.ant-rate {
+  color: #f65261;
+}
+
+.ant-select-dropdown {
+  width: 100%;
+  background-color: rgba(50, 50, 50, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.ant-picker-panel-container .ant-picker-panel,
+.ant-picker-header,
+.ant-picker-date-panel .ant-picker-body {
+  background-color: rgba(50, 50, 50, 1) !important;
+  color: #fff !important;
 }

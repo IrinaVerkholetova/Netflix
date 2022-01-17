@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import './add-movie-modal.css';
-import { Modal, Button, Input } from 'antd';
+import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { categories } from './../../const';
 
 export const AddMovie = ({ netflix }) => {
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
-  const [modalText, setModalText] = useState('Content of the modal');
 
   const { TextArea } = Input;
+  const { Option } = Select;
 
   const handleOk = () => {
-    setModalText('The modal will be closed after two seconds');
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible(false);
       setConfirmLoading(false);
     }, 2000);
   };
-
   const handleCancel = () => setVisible(false);
+
+  const handleChange = (value) => {
+    console.log(`Selected: ${value}`);
+  };
 
   return (
     <div className="header">
@@ -42,6 +45,46 @@ export const AddMovie = ({ netflix }) => {
           </Button>,
         ]}
       >
+        <div className="formContainer">
+          <div className="column">
+            <div className="item">
+              <h3>TITLE</h3>
+              <Input placeholder="Enter title" />
+            </div>
+            <div className="item">
+              <h3>MOVIE URL</h3>
+              <Input placeholder="https://" />
+            </div>
+            <div className="item">
+              <h3>GENRE</h3>
+              <Select
+                className="selectGenre"
+                mode="multiple"
+                placeholder="Select Genre"
+                onChange={handleChange}
+              >
+                {categories.map((item) => (
+                  <Option key={item.key}>{item.category.toLocaleLowerCase()}</Option>
+                ))}
+              </Select>
+            </div>
+          </div>
+          <div className="column">
+            <div className="item">
+              <h3>RELEASE DATE</h3>
+              <DatePicker placeholder={'Select Date'} format={'DD.MM.YYYY'} />
+            </div>
+            <div className="item">
+              <h3>RATING</h3>
+              <Rate allowHalf defaultValue={0} />
+            </div>
+            <div className="item">
+              <h3>RUNTIME</h3>
+              <Input placeholder="minutes" />
+            </div>
+          </div>
+        </div>
+
         <h3>OVERVIEW</h3>
         <TextArea rows={4} placeholder="Movie description" />
       </Modal>

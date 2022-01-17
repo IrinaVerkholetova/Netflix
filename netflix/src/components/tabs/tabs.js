@@ -2,6 +2,7 @@ import React from 'react';
 import './tabs.css';
 import { Tabs } from 'antd';
 import { ReleaseDate } from './release-date/release-date';
+import { categories } from '../const';
 
 export const TabsCategories = () => {
   const { TabPane } = Tabs;
@@ -12,13 +13,6 @@ export const TabsCategories = () => {
       <ReleaseDate />
     </>
   );
-  const categories = [
-    { key: 1, category: 'ALL' },
-    { key: 2, category: 'DOCUMENTARY' },
-    { key: 3, category: 'COMEDY' },
-    { key: 4, category: 'HORROR' },
-    { key: 5, category: 'CRIME' },
-  ];
 
   return (
     <div className="tabs">
