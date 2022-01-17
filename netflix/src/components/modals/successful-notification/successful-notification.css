@@ -1,0 +1,17 @@
+@import '~antd/dist/antd.css';
+
+.notification {
+  background: rgba(35, 35, 35, 1);
+  color: #fff;
+}
+
+.ant-notification-notice-with-icon .ant-notification-notice-message,
+.ant-notification-notice-close,
+.ant-notification-notice-close:hover,
+.ant-notification-notice-close:active {
+  color: #fff;
+}
+
+.anticon.ant-notification-notice-icon-success {
+  color: #f65261;
+}

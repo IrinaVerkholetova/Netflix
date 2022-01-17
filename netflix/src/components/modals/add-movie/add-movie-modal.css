@@ -56,9 +56,11 @@ h3 {
 .ant-btn-primary,
 .ant-btn-primary:hover,
 .ant-btn-primary:active,
-.ant-btn-primary:visited {
+.ant-btn-primary:visited,
+.ant-btn-primary:focus {
   color: #fff;
   background: #f65261;
+  border: 1px solid #f65261;
 }
 
 .ant-modal-header {

@@ -3,19 +3,18 @@ import './add-movie-modal.css';
 import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { categories } from './../../const';
+import { SuccessNotification } from '../successful-notification/successful-notification';
 
 export const AddMovie = ({ netflix }) => {
   const [visible, setVisible] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
 
   const { TextArea } = Input;
   const { Option } = Select;
 
   const handleOk = () => {
-    setConfirmLoading(true);
     setTimeout(() => {
       setVisible(false);
-      setConfirmLoading(false);
+      SuccessNotification();
     }, 2000);
   };
   const handleCancel = () => setVisible(false);
@@ -34,7 +33,6 @@ export const AddMovie = ({ netflix }) => {
         title="ADD MOVIE"
         visible={visible}
         onOk={handleOk}
-        confirmLoading={confirmLoading}
         onCancel={handleCancel}
         footer={[
           <Button key="back" onClick={handleCancel}>
