@@ -1,21 +1,22 @@
 import React from 'react';
 import './home.css';
-import { PlusOutlined } from '@ant-design/icons';
 import { TabsCategories } from '../tabs/tabs';
+import { AddMovie } from '../modals/add-movie/add-movie-modal';
 
 export const HomaPage = () => {
+  const netflix = (
+    <span className="title">
+      <b>netflix</b>roulette
+    </span>
+  );
+
   return (
     <div className="container">
       <section className="headerContainer">
-        <div className="header">
-          <span className="title">
-            <b>netflix</b>roulette
-          </span>
-          <button className="addMovie">
-            <PlusOutlined /> ADD MOVIE
-          </button>
-        </div>
+        <AddMovie netflix={netflix} />
+
         <h1>FIND YOUR MOVIE</h1>
+
         <div className="search">
           <input placeholder="What do you want to watch?" />
           <button>SEARCH</button>
@@ -26,11 +27,7 @@ export const HomaPage = () => {
         <TabsCategories />
       </section>
 
-      <section className="footerContainer">
-        <span className="title">
-          <b>netflix</b>roulette
-        </span>
-      </section>
+      <section className="footerContainer">{netflix}</section>
     </div>
   );
 };
