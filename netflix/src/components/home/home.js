@@ -2,6 +2,7 @@ import React from 'react';
 import './home.css';
 import { TabsCategories } from '../tabs/tabs';
 import { AddMovie } from '../modals/add-movie/add-movie-modal';
+import { Input } from 'antd';
 
 export const HomaPage = () => {
   const netflix = (
@@ -10,16 +11,22 @@ export const HomaPage = () => {
     </span>
   );
 
+  const { Search } = Input;
+  const onSearch = (value) => console.log(value);
+
   return (
     <div className="container">
       <section className="headerContainer">
-        <AddMovie netflix={netflix} />
+        <AddMovie title={netflix} />
 
         <h1>FIND YOUR MOVIE</h1>
 
         <div className="search">
-          <input placeholder="What do you want to watch?" />
-          <button>SEARCH</button>
+          <Search
+            placeholder="What do you want to watch?"
+            enterButton="SEARCH"
+            onSearch={onSearch}
+          />
         </div>
       </section>
 

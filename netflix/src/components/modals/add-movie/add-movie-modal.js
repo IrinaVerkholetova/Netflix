@@ -5,7 +5,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { categories } from './../../const';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
-export const AddMovie = ({ netflix }) => {
+export const AddMovie = ({ title }) => {
   const [visible, setVisible] = useState(false);
 
   const { TextArea } = Input;
@@ -25,10 +25,11 @@ export const AddMovie = ({ netflix }) => {
 
   return (
     <div className="header">
-      {netflix}
+      {title}
       <button className="addMovie" onClick={() => setVisible(true)}>
         <PlusOutlined /> ADD MOVIE
       </button>
+
       <Modal
         title="ADD MOVIE"
         visible={visible}
@@ -82,7 +83,6 @@ export const AddMovie = ({ netflix }) => {
             </div>
           </div>
         </div>
-
         <h3>OVERVIEW</h3>
         <TextArea rows={4} placeholder="Movie description" />
       </Modal>
