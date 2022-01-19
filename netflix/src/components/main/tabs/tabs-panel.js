@@ -1,10 +1,11 @@
 import React from 'react';
-import './tabs.css';
+import './tabs-panel.css';
 import { Tabs } from 'antd';
-import { ReleaseDate } from './release-date/release-date';
-import { categories } from '../const';
+import { ReleaseDate } from '../release-date/release-date';
+import { categories } from '../../tabs-name';
+import { MoviesList } from '../movies-list/movies-list';
 
-export const TabsCategories = () => {
+export const TabsPanel = () => {
   const { TabPane } = Tabs;
   const callback = (key) => console.log(key);
   const operations = (
@@ -15,13 +16,13 @@ export const TabsCategories = () => {
   );
 
   return (
-    <div className="tabs">
+    <div className="mainContainer">
       <Tabs defaultActiveKey="1" onChange={callback} tabBarExtraContent={operations}>
         {categories.map((item) => {
           return (
             <TabPane tab={item.category} key={item.key}>
               <div className="result"> movies found</div>
-              Content of Tab Pane {item.category}
+              <MoviesList item={item} />
             </TabPane>
           );
         })}

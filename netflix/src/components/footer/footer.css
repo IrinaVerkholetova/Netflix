@@ -1,0 +1,5 @@
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  padding: 23px 0;
+}

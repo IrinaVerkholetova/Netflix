@@ -4,20 +4,11 @@ h1 {
   font-size: 40px;
 }
 
-.container {
-  width: 100%;
-}
-
 .headerContainer {
   height: 396px;
   background: #232323;
   margin: 23px 46px;
   background: url(https://appmaxx.com/wp-content/uploads/2019/09/hulu-protiv-netfliks-kakoj-televizor-potokovogo-platformy-vy-vybiraete.jpg);
-}
-
-.title {
-  color: #f65261;
-  font-size: 20px;
 }
 
 .search {
@@ -43,17 +34,4 @@ h1 {
   width: 233px;
   height: 57px;
   font-size: 20px;
-}
-
-.mainContainer {
-  background: #232323;
-  height: 100vh;
-  color: #ffffff;
-  margin: 23px 46px 0 46px;
-}
-
-.footerContainer {
-  display: flex;
-  justify-content: center;
-  padding: 23px 0;
 }

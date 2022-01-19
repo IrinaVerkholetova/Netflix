@@ -1,6 +1,10 @@
 @import '~antd/dist/antd.css';
 
-.tabs {
+.mainContainer {
+  background: #232323;
+  height: 100vh;
+  color: #ffffff;
+  margin: 23px 46px 0 46px;
   display: flex;
   justify-content: space-between;
   padding: 0 35px;

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './add-movie-modal.css';
 import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { categories } from './../../const';
+import { categories } from '../../tabs-name';
 import { SuccessNotification } from '../successful-notification/successful-notification';
+import { Netflix } from '../../logo/logo';
 
-export const AddMovie = ({ title }) => {
+export const AddMovie = () => {
   const [visible, setVisible] = useState(false);
 
   const { TextArea } = Input;
@@ -25,7 +26,7 @@ export const AddMovie = ({ title }) => {
 
   return (
     <div className="header">
-      {title}
+      <Netflix />
       <button className="addMovie" onClick={() => setVisible(true)}>
         <PlusOutlined /> ADD MOVIE
       </button>
