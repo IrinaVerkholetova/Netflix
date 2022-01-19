@@ -1,5 +1,5 @@
 import React from 'react';
-import './tabs-panel.css';
+import css from './tabs-panel.module.css';
 import { Tabs } from 'antd';
 import { ReleaseDate } from '../release-date/release-date';
 import { categories } from '../../tabs-name';
@@ -10,18 +10,18 @@ export const TabsPanel = () => {
   const callback = (key) => console.log(key);
   const operations = (
     <>
-      <span className="sortBy">SORT BY</span>
+      <span className={css.sortBy}>SORT BY</span>
       <ReleaseDate />
     </>
   );
 
   return (
-    <div className="mainContainer">
+    <div className={css.mainContainer}>
       <Tabs defaultActiveKey="1" onChange={callback} tabBarExtraContent={operations}>
         {categories.map((item) => {
           return (
             <TabPane tab={item.category} key={item.key}>
-              <div className="result"> movies found</div>
+              <div className={css.result}> movies found</div>
               <MoviesList item={item} />
             </TabPane>
           );
