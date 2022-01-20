@@ -1,10 +1,16 @@
 @import '~antd/dist/antd.css';
 
-.select {
-  width: 145px;
+.releaseDate {
+  width: 145px !important;
+  color: #fff !important;
+}
+
+.releaseDate input {
   font-size: 16px;
-  font-weight: 600;
-  color: #fff;
+}
+
+.ant-picker-date-panel {
+  color: #fff !important;
 }
 
 .ant-tabs-extra-content {
@@ -16,9 +22,4 @@
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   background: transparent;
   border: none;
-}
-.ant-select-focuced:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
-  .ant-select-selector {
-  box-shadow: none !important;
-  border-color: transparent;
 }

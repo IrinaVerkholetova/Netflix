@@ -1,10 +1,10 @@
 import React from 'react';
-import './add-movie-modal.css';
+import './edit-movie-modal.css';
 import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
 import { categories } from '../../../helper/constants/categories';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
-export const AddMovie = ({ message, visible, setVisible }) => {
+export const EditMovie = ({ message, visible, setVisible }) => {
   const { TextArea } = Input;
   const { Option } = Select;
 
@@ -22,7 +22,7 @@ export const AddMovie = ({ message, visible, setVisible }) => {
 
   return (
     <Modal
-      title="ADD MOVIE"
+      title="EDIT MOVIE"
       visible={visible}
       onOk={handleOk}
       onCancel={handleCancel}

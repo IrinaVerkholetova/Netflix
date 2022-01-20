@@ -2,9 +2,7 @@
 
 .mainContainer {
   background: #232323;
-  height: 100vh;
   color: #ffffff;
-  margin: 23px 46px 0 46px;
   display: flex;
   justify-content: space-between;
   padding: 0 35px;
@@ -20,10 +18,13 @@
 
 .result {
   padding: 12px 0;
+  color: #ffffff;
+  font-size: 20px;
 }
 
 .ant-tabs {
   width: 100%;
+  overflow: initial;
 }
 
 .ant-tabs-tab-btn,

@@ -40,6 +40,9 @@ h3 {
   border: 1px solid #f65261;
   color: #f65261;
   background: transparent;
+  /* font-size: 20px;
+  width: 180px;
+  height: 57px; */
 }
 
 .ant-btn-primary,
@@ -50,6 +53,9 @@ h3 {
   color: #fff;
   background: #f65261;
   border: 1px solid #f65261;
+  /* font-size: 20px;
+  width: 180px;
+  height: 57px; */
 }
 
 .ant-modal-header {

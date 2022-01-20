@@ -1,0 +1,96 @@
+@import '~antd/dist/antd.css';
+
+.container {
+  width: 324px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  margin: 25px;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+.actions {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 24px;
+  border-radius: 50%;
+  background: #232323 !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions:hover {
+  background: #232323;
+  color: #fff;
+  border: 1px solid #f65261;
+}
+
+.actions:active,
+.actions:focus,
+.actions:visited {
+  background: #232323;
+  color: #fff;
+  border: transparent;
+  border-radius: 50%;
+}
+
+.imgMovie {
+  width: 324px;
+}
+
+.movie_year {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie_name {
+  color: #fff;
+  font-size: 18px;
+  margin: 8px 0;
+  opacity: 0.7;
+}
+
+.year {
+  width: 66px;
+  border-radius: 4px;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.genre {
+  opacity: 0.5;
+}
+
+.ant-dropdown-menu {
+  width: 100px;
+  background: #232323;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+  color: #fff;
+  font-size: 16px;
+}
+.ant-dropdown-menu-item:hover {
+  background-color: #f65261;
+}
+
+.actionButton,
+.actionButton:hover,
+.actionButton:active,
+.actionButton:visited,
+.actionButton:focus {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+}
