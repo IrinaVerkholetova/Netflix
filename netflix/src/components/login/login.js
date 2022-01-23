@@ -62,7 +62,7 @@ export const LoginPage = () => {
           <span style={{ color: '#fff' }}>*Mandatory</span>
         </Form>
       </div>
-      <Netflix style={{ marginTop: '50px', fontSize: '48px' }} />
+      <Netflix style={{ marginTop: '60px', fontSize: '48px' }} />
     </div>
   );
 };

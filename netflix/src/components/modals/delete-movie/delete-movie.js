@@ -3,7 +3,7 @@ import './delete-movie.css';
 import { Modal, Button } from 'antd';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
-export const DeleteMovie = ({ message, visible, setVisible }) => {
+export const DeleteMovie = ({ message, movie, visible, setVisible }) => {
   const handleOk = () => {
     setTimeout(() => {
       setVisible(false);

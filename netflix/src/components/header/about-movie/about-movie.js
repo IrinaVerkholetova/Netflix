@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './about-movie.css';
 import { Netflix } from './../../logo/logo';
 import { Button } from 'antd';
@@ -14,6 +14,13 @@ export const AboutMovie = () => {
   const currentMovieId = +location.pathname.split('/')[2];
 
   const movie = ToolServices.foundMovie(moviesTemp, currentMovieId);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [currentMovieId]);
 
   return (
     <div className="aboutMovieContainer">

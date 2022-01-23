@@ -29,6 +29,7 @@ export const MovieCard = ({ movie }) => {
       {delMovie && (
         <DeleteMovie
           message={'The movie has been deleted from database successfully'}
+          movie={movie}
           visible={delMovie}
           setVisible={setDelMovie}
         />
@@ -36,6 +37,7 @@ export const MovieCard = ({ movie }) => {
       {editMovie && (
         <EditMovie
           message={'The movie has been updated to database successfully'}
+          movie={movie}
           visible={editMovie}
           setVisible={setEditMovie}
         />

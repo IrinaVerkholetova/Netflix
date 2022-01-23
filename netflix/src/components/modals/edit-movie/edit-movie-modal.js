@@ -4,7 +4,7 @@ import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
 import { genres } from '../../../helper/constants/categories';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
-export const EditMovie = ({ message, visible, setVisible }) => {
+export const EditMovie = ({ message, movie, visible, setVisible }) => {
   const { TextArea } = Input;
   const { Option } = Select;
 
