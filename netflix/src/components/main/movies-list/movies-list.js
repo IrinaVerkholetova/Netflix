@@ -3,24 +3,43 @@ import css from './movies-list.module.css';
 import { moviesTemp } from '../../../helper/constants/movies';
 import { MovieCard } from '../movie-card/movie-card';
 import { useNavigate } from 'react-router-dom';
+import ToolServices from './../../../helper/services';
 
-export const MoviesList = () => {
+export const MoviesList = ({ genre }) => {
   const navigate = useNavigate();
 
-  const handleEvent = (event) => {
-    event.stopPropagation();
-    console.log('About movie');
-    navigate('/aboutmovie');
-  };
+  const moviesFilted = ToolServices.moviesFilted(genre, moviesTemp);
+
   return (
-    <ul className={css.container}>
-      {moviesTemp.map((item, index) => {
-        return (
-          <li key={index} className={css.card} onClick={handleEvent}>
-            <MovieCard movie={item} />
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <div className={css.result}>
+        {moviesFilted.length ? (
+          <span>
+            <b>{moviesFilted.length}</b> movies found
+          </span>
+        ) : (
+          <span>Not results found</span>
+        )}
+      </div>
+
+      {Boolean(moviesFilted.length) && (
+        <ul className={css.container}>
+          {moviesFilted.map((item) => {
+            return (
+              <li
+                key={item.key}
+                className={css.card}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/aboutmovie/${item.key}`);
+                }}
+              >
+                <MovieCard movie={item} />
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </>
   );
 };

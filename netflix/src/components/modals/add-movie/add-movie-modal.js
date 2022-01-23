@@ -2,7 +2,7 @@ import React from 'react';
 import './add-movie-modal.css';
 import { useForm, Controller } from 'react-hook-form';
 import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
-import { categories } from '../../../helper/constants/categories';
+import { genres } from '../../../helper/constants/categories';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
 export const AddMovie = ({ message, visible, setVisible }) => {
@@ -95,8 +95,8 @@ export const AddMovie = ({ message, visible, setVisible }) => {
                 placeholder="Select Genre"
                 onChange={handleChange}
               >
-                {categories.map((item) => (
-                  <Option key={item.key}>{item.category.toLocaleLowerCase()}</Option>
+                {genres.map((item, index) => (
+                  <Option key={index}>{item.toLocaleLowerCase()}</Option>
                 ))}
               </Select>
             </div>

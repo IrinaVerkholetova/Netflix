@@ -9,3 +9,9 @@
 .card {
   cursor: pointer;
 }
+
+.result {
+  padding: 12px 0;
+  color: #ffffff;
+  font-size: 20px;
+}

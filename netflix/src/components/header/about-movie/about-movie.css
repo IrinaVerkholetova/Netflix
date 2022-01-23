@@ -1,0 +1,55 @@
+.aboutMovieContainer {
+  background: #232323;
+}
+
+.movieSection {
+  display: flex;
+  flex-direction: row;
+  margin: 0 46px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  margin-left: 50px;
+}
+
+.description h1 {
+  margin: 0 !important;
+  padding-right: 25px;
+}
+
+.rowSection {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-between;
+}
+.rowSection:last-child {
+  margin-bottom: 30px;
+}
+
+.ratingCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.movieGenre,
+.overview {
+  color: #fff;
+  opacity: 0.5;
+}
+
+.year_runtime {
+  color: #f65261;
+  font-size: 24px;
+  margin: 30px 0;
+}

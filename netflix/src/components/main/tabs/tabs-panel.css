@@ -16,12 +16,6 @@
   padding: 0 15px;
 }
 
-.result {
-  padding: 12px 0;
-  color: #ffffff;
-  font-size: 20px;
-}
-
 .ant-tabs {
   width: 100%;
   overflow: initial;
@@ -40,4 +34,18 @@
 }
 .ant-tabs-ink-bar {
   border-bottom: 2px solid #f65261;
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-more {
+  color: #f65261;
+}
+
+.ant-tabs-dropdown-menu-item,
+.ant-tabs-dropdown-menu {
+  color: #fff;
+  background: #232323;
+}
+
+.ant-tabs-dropdown-menu-item:hover {
+  background: #f65261;
 }

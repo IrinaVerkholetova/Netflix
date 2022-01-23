@@ -1,7 +1,7 @@
 import React from 'react';
 import './edit-movie-modal.css';
 import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
-import { categories } from '../../../helper/constants/categories';
+import { genres } from '../../../helper/constants/categories';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
 export const EditMovie = ({ message, visible, setVisible }) => {
@@ -53,8 +53,8 @@ export const EditMovie = ({ message, visible, setVisible }) => {
               placeholder="Select Genre"
               onChange={handleChange}
             >
-              {categories.map((item) => (
-                <Option key={item.key}>{item.category.toLocaleLowerCase()}</Option>
+              {genres.map((item, index) => (
+                <Option key={index}>{item.toLocaleLowerCase()}</Option>
               ))}
             </Select>
           </div>

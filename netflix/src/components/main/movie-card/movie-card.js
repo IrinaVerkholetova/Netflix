@@ -4,6 +4,7 @@ import { Button, Dropdown, Menu } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 import { DeleteMovie } from '../../modals/delete-movie/delete-movie';
 import { EditMovie } from '../../modals/edit-movie/edit-movie-modal';
+import { MovieImage } from './movie-image';
 
 export const MovieCard = ({ movie }) => {
   const [editMovie, setEditMovie] = useState(false);
@@ -46,12 +47,12 @@ export const MovieCard = ({ movie }) => {
         </Button>
       </Dropdown>
 
-      <img src={movie.imgUrl} alt={movie.name} className="imgMovie" />
+      <MovieImage movie={movie} />
       <div className="movie_year">
         <h2 className="movie_name">{movie.name}</h2>
         <div className="year">{movie.year}</div>
       </div>
-      <span className="genre">{movie.gerne}</span>
+      <span className="genre">{movie.genre}</span>
     </div>
   );
 };

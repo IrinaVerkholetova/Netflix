@@ -21,7 +21,7 @@ export default function App() {
         }
       />
       <Route
-        path="/aboutmovie"
+        path="/aboutmovie/:id"
         element={
           <>
             <AboutMovie />

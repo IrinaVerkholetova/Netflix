@@ -2,8 +2,8 @@ import React from 'react';
 import './tabs-panel.css';
 import { Tabs } from 'antd';
 import { ReleaseDate } from './release-date/release-date';
-import { categories } from '../../../helper/constants/categories';
 import { MoviesList } from '../movies-list/movies-list';
+import { genres } from '../../../helper/constants/categories';
 
 export const TabsPanel = () => {
   const { TabPane } = Tabs;
@@ -17,15 +17,12 @@ export const TabsPanel = () => {
 
   return (
     <div className="mainContainer">
-      <Tabs defaultActiveKey="1" onChange={callback} tabBarExtraContent={operations}>
-        {categories.map((item) => {
+      <Tabs defaultActiveKey={genres[0]} onChange={callback} tabBarExtraContent={operations}>
+        {genres.map((item, index) => {
           return (
-            <TabPane tab={item.category} key={item.key}>
-              <div className="result">
-                <b>39</b> movies found
-              </div>
-              <div>Content of Tab Pane {item.category}</div>
-              <MoviesList />
+            <TabPane tab={item} key={index}>
+              {/* <div>Content of Tab Pane {item.category}</div> */}
+              <MoviesList genre={item} />
             </TabPane>
           );
         })}

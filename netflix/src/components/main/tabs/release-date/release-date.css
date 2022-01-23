@@ -1,7 +1,7 @@
 @import '~antd/dist/antd.css';
 
 .releaseDate {
-  width: 145px !important;
+  width: 165px !important;
   color: #fff !important;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .ant-tabs-extra-content {
-  width: 250px;
+  width: 270px;
 }
 .ant-select-arrow {
   color: #f65261;
