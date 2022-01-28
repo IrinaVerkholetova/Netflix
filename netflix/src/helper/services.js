@@ -1,12 +1,12 @@
 import React from 'react';
 
 export default class ToolServices extends React.Component {
-  static moviesFilted = (genre, moviesTemp) => {
-    return genre === 'ALL'
-      ? moviesTemp
-      : moviesTemp.filter((item) => item.genre.includes(genre.toLowerCase()));
+  static moviesFilted = (movies, genre) => {
+    console.log(movies, genre);
+    return genre === 'All' ? movies : movies.filter((item) => item.genres.includes(genre));
   };
-  static foundMovie = (moviesTemp, key) => {
-    return moviesTemp.find((item) => item.key === key);
+
+  static foundMovie = (movies, id) => {
+    return movies?.find((item) => item.id === id);
   };
 }

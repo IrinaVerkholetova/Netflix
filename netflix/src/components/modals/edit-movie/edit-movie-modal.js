@@ -39,7 +39,13 @@ export const EditMovie = ({ message, movie, visible, setVisible }) => {
         <div className="column">
           <div className="item">
             <h3>TITLE</h3>
-            <Input placeholder="Enter title" />
+            <Input
+              placeholder="Enter title"
+              value={movie.title}
+              onChange={(event, value) => {
+                event.stopPropagation();
+              }}
+            />
           </div>
           <div className="item">
             <h3>MOVIE URL</h3>
@@ -51,10 +57,11 @@ export const EditMovie = ({ message, movie, visible, setVisible }) => {
               className="selectGenre"
               mode="multiple"
               placeholder="Select Genre"
+              value={movie.genres}
               onChange={handleChange}
             >
-              {genres.map((item, index) => (
-                <Option key={index}>{item.toLocaleLowerCase()}</Option>
+              {genres.map((item) => (
+                <Option key={item.key}>{item.category}</Option>
               ))}
             </Select>
           </div>

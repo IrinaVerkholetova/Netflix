@@ -5,7 +5,7 @@ import { ReleaseDate } from './release-date/release-date';
 import { MoviesList } from '../movies-list/movies-list';
 import { genres } from '../../../helper/constants/categories';
 
-export const TabsPanel = () => {
+export const TabsPanel = ({ list }) => {
   const { TabPane } = Tabs;
   const callback = (key) => console.log(key);
   const operations = (
@@ -20,9 +20,8 @@ export const TabsPanel = () => {
       <Tabs defaultActiveKey={genres[0]} onChange={callback} tabBarExtraContent={operations}>
         {genres.map((item) => {
           return (
-            <TabPane tab={item.category} key={item.key}>
-              {/* <div>Content of Tab Pane {item.category}</div> */}
-              <MoviesList genre={item.category} />
+            <TabPane tab={item.category.toUpperCase()} key={item.key}>
+              <MoviesList list={list} genre={item.category} />
             </TabPane>
           );
         })}

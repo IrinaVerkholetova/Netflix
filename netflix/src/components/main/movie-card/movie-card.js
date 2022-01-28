@@ -12,12 +12,24 @@ export const MovieCard = ({ movie }) => {
   const menu = (
     <Menu>
       <Menu.Item>
-        <Button className="actionButton" onClick={() => setEditMovie(true)}>
+        <Button
+          className="actionButton"
+          onClick={(event) => {
+            event.stopPropagation();
+            setEditMovie(true);
+          }}
+        >
           Edit
         </Button>
       </Menu.Item>
       <Menu.Item>
-        <Button className="actionButton" onClick={() => setDelMovie(true)}>
+        <Button
+          className="actionButton"
+          onClick={(event) => {
+            event.stopPropagation();
+            setDelMovie(true);
+          }}
+        >
           Delete
         </Button>
       </Menu.Item>
@@ -28,7 +40,7 @@ export const MovieCard = ({ movie }) => {
     <div className="container">
       {delMovie && (
         <DeleteMovie
-          message={'The movie has been deleted from database successfully'}
+          message="The movie has been deleted from database successfully"
           movie={movie}
           visible={delMovie}
           setVisible={setDelMovie}
@@ -44,17 +56,17 @@ export const MovieCard = ({ movie }) => {
       )}
 
       <Dropdown overlay={menu} placement="bottomCenter">
-        <Button className="actions">
+        <Button className="actions" onClick={(event) => event.stopPropagation()}>
           <MoreOutlined />
         </Button>
       </Dropdown>
 
       <MovieImage movie={movie} />
       <div className="movie_year">
-        <h2 className="movie_name">{movie.name}</h2>
-        <div className="year">{movie.year}</div>
+        <h2 className="movie_name">{movie.title}</h2>
+        <div className="year">{movie.release_date.split('-')[0]}</div>
       </div>
-      <span className="genre">{movie.genre}</span>
+      <span className="genre">{movie.genres.join(' & ')}</span>
     </div>
   );
 };

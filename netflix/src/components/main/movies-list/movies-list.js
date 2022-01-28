@@ -1,19 +1,18 @@
 import React from 'react';
 import css from './movies-list.module.css';
-import { moviesTemp } from '../../../helper/constants/movies';
 import { MovieCard } from '../movie-card/movie-card';
 import { useNavigate } from 'react-router-dom';
 import ToolServices from './../../../helper/services';
 
-export const MoviesList = ({ genre }) => {
+export const MoviesList = ({ list, genre }) => {
   const navigate = useNavigate();
 
-  const moviesFilted = ToolServices.moviesFilted(genre, moviesTemp);
+  const moviesFilted = ToolServices.moviesFilted(list, genre);
 
   return (
     <>
       <div className={css.result}>
-        {moviesFilted.length ? (
+        {moviesFilted?.length ? (
           <span>
             <b>{moviesFilted.length}</b> movies found
           </span>
@@ -22,18 +21,19 @@ export const MoviesList = ({ genre }) => {
         )}
       </div>
 
-      {!!moviesFilted.length && (
+      {!!moviesFilted?.length && (
         <ul className={css.container}>
           {moviesFilted.map((item) => {
             return (
               <li
+                key={item.id}
                 className={css.card}
                 onClick={(event) => {
-                  event.stopPropagation();
-                  navigate(`/aboutmovie/${item.key}`);
+                  // event.stopPropagation();
+                  navigate(`/aboutmovie/${item.id}`);
                 }}
               >
-                <MovieCard key={item.key} movie={item} />
+                <MovieCard movie={item} />
               </li>
             );
           })}

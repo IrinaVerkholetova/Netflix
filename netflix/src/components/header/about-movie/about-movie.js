@@ -5,24 +5,23 @@ import { Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router-dom';
 import ToolServices from './../../../helper/services';
-import { moviesTemp } from '../../../helper/constants/movies';
 import { MovieImage } from '../../main/movie-card/movie-image';
 
-export const AboutMovie = () => {
+export const AboutMovie = ({ list }) => {
   const location = useLocation();
 
   const currentMovieId = +location.pathname.split('/')[2];
 
-  const movie = ToolServices.foundMovie(moviesTemp, currentMovieId);
+  const movie = ToolServices.foundMovie(list, currentMovieId);
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, [currentMovieId]);
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth',
+  //   });
+  // }, [currentMovieId]);
 
-  return (
+  return movie ? (
     <div className="aboutMovieContainer">
       <div className="header">
         <Netflix />
@@ -32,14 +31,14 @@ export const AboutMovie = () => {
         <MovieImage movie={movie} />
         <div className="description">
           <div className="rowSection">
-            <h1>{movie.name}</h1>
-            <div className="ratingCircle">{movie.rating}</div>
+            <h1>{movie.title}</h1>
+            <div className="ratingCircle">{movie.vote_average}</div>
           </div>
 
-          <span className="movieGenre">{movie.genre}</span>
+          <span className="movieGenre">{movie.genres.join(' & ')}</span>
 
           <div className="rowSection">
-            <span className="year_runtime">{movie.year}</span>
+            <span className="year_runtime">{movie.release_date.split('-')[0]}</span>
             <span className="year_runtime">{movie.runtime} minutes</span>
           </div>
 
@@ -47,5 +46,5 @@ export const AboutMovie = () => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };

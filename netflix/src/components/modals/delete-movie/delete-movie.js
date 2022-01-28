@@ -4,14 +4,17 @@ import { Modal, Button } from 'antd';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
 export const DeleteMovie = ({ message, movie, visible, setVisible }) => {
-  const handleOk = () => {
+  const handleOk = (event) => {
+    event.stopPropagation();
     setTimeout(() => {
       setVisible(false);
       SuccessNotification(message);
     }, 2000);
   };
-  const handleCancel = () => setVisible(false);
-
+  const handleCancel = (event) => {
+    event.stopPropagation();
+    setVisible(false);
+  };
   return (
     <Modal
       title="DELETE MOVIE"
