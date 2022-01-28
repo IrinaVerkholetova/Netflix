@@ -17,7 +17,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   render() {
-    if (this.state.errorInfo) {
+    if (this.state.error) {
       // Error path
       return (
         <div className="errorContainer">

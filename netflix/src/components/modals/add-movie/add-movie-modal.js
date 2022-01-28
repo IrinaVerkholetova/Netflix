@@ -95,8 +95,8 @@ export const AddMovie = ({ message, visible, setVisible }) => {
                 placeholder="Select Genre"
                 onChange={handleChange}
               >
-                {genres.map((item, index) => (
-                  <Option key={index}>{item.toLocaleLowerCase()}</Option>
+                {genres.map((item) => (
+                  <Option key={item.key}>{item.category.toLocaleLowerCase()}</Option>
                 ))}
               </Select>
             </div>

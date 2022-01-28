@@ -22,19 +22,18 @@ export const MoviesList = ({ genre }) => {
         )}
       </div>
 
-      {Boolean(moviesFilted.length) && (
+      {!!moviesFilted.length && (
         <ul className={css.container}>
           {moviesFilted.map((item) => {
             return (
               <li
-                key={item.key}
                 className={css.card}
                 onClick={(event) => {
                   event.stopPropagation();
                   navigate(`/aboutmovie/${item.key}`);
                 }}
               >
-                <MovieCard movie={item} />
+                <MovieCard key={item.key} movie={item} />
               </li>
             );
           })}

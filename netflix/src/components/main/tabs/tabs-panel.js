@@ -18,11 +18,11 @@ export const TabsPanel = () => {
   return (
     <div className="mainContainer">
       <Tabs defaultActiveKey={genres[0]} onChange={callback} tabBarExtraContent={operations}>
-        {genres.map((item, index) => {
+        {genres.map((item) => {
           return (
-            <TabPane tab={item} key={index}>
+            <TabPane tab={item.category} key={item.key}>
               {/* <div>Content of Tab Pane {item.category}</div> */}
-              <MoviesList genre={item} />
+              <MoviesList genre={item.category} />
             </TabPane>
           );
         })}
