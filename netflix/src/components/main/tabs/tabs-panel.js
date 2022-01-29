@@ -4,6 +4,7 @@ import { Tabs } from 'antd';
 import { ReleaseDate } from './release-date/release-date';
 import { MoviesList } from '../movies-list/movies-list';
 import { genres } from '../../../helper/constants/categories';
+import { WrapperMoviesList } from '../movies-list/wrapper-movies-list';
 
 export const TabsPanel = ({ list }) => {
   const { TabPane } = Tabs;
@@ -21,7 +22,7 @@ export const TabsPanel = ({ list }) => {
         {genres.map((item) => {
           return (
             <TabPane tab={item.category.toUpperCase()} key={item.key}>
-              <MoviesList list={list} genre={item.category} />
+              <WrapperMoviesList list={list} genre={item.category} />
             </TabPane>
           );
         })}
