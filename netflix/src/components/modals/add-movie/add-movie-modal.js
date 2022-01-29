@@ -1,21 +1,42 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './add-movie-modal.css';
-import { Modal, Button, Input, DatePicker, Rate, Select } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import { categories } from '../../tabs-name';
+import { useForm } from 'react-hook-form';
+import { Modal, Button, Input, DatePicker, Select, Slider, InputNumber, Row, Col } from 'antd';
+import { genres } from '../../../helper/constants/categories';
 import { SuccessNotification } from '../successful-notification/successful-notification';
-import { Netflix } from '../../logo/logo';
 
-export const AddMovie = () => {
-  const [visible, setVisible] = useState(false);
-
+export const AddMovie = ({ message, visible, setVisible }) => {
   const { TextArea } = Input;
   const { Option } = Select;
+
+  const defaultValues = {
+    title: '',
+    movieUrl: '',
+    genre: null,
+    releaseDate: new Date(),
+    rating: 0,
+    runtime: 0,
+    overview: '',
+  };
+
+  const {
+    handleSubmit,
+    // control,
+    // setValue,
+    // formState: { errors, isDirty, isValid },
+  } = useForm({
+    defaultValues,
+  });
+
+  const onSubmit = (form) => {
+    console.log('form', form);
+    handleOk();
+  };
 
   const handleOk = () => {
     setTimeout(() => {
       setVisible(false);
-      SuccessNotification();
+      SuccessNotification(message);
     }, 2000);
   };
   const handleCancel = () => setVisible(false);
@@ -25,12 +46,7 @@ export const AddMovie = () => {
   };
 
   return (
-    <div className="header">
-      <Netflix />
-      <button className="addMovie" onClick={() => setVisible(true)}>
-        <PlusOutlined /> ADD MOVIE
-      </button>
-
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Modal
         title="ADD MOVIE"
         visible={visible}
@@ -40,7 +56,7 @@ export const AddMovie = () => {
           <Button key="back" onClick={handleCancel}>
             RESET
           </Button>,
-          <Button key="submit" type="primary" onClick={handleOk}>
+          <Button type="primary" onClick={onSubmit}>
             SUBMIT
           </Button>,
         ]}
@@ -49,11 +65,17 @@ export const AddMovie = () => {
           <div className="column">
             <div className="item">
               <h3>TITLE</h3>
-              <Input placeholder="Enter title" />
+              <Input
+                placeholder="Enter title"
+                // value={movie.title}
+                onChange={(event, value) => {
+                  event.stopPropagation();
+                }}
+              />
             </div>
             <div className="item">
               <h3>MOVIE URL</h3>
-              <Input placeholder="https://" />
+              <Input placeholder="https://" /*value={movie.poster_path}*/ />
             </div>
             <div className="item">
               <h3>GENRE</h3>
@@ -61,10 +83,11 @@ export const AddMovie = () => {
                 className="selectGenre"
                 mode="multiple"
                 placeholder="Select Genre"
+                // value={movie.genres}
                 onChange={handleChange}
               >
-                {categories.map((item) => (
-                  <Option key={item.key}>{item.category.toLocaleLowerCase()}</Option>
+                {genres.map((item) => (
+                  <Option key={item.key}>{item.category}</Option>
                 ))}
               </Select>
             </div>
@@ -72,21 +95,47 @@ export const AddMovie = () => {
           <div className="column">
             <div className="item">
               <h3>RELEASE DATE</h3>
-              <DatePicker placeholder={'Select Date'} format={'DD.MM.YYYY'} />
+              <DatePicker
+                placeholder={'Select Date'}
+                format={'YYYY-MM-DD'}
+                // value={moment(movie.release_date, 'YYYY-MM-DD')}
+              />
             </div>
             <div className="item">
               <h3>RATING</h3>
-              <Rate allowHalf defaultValue={0} />
+              <Row>
+                <Col span={12}>
+                  <Slider
+                    min={0}
+                    max={10}
+                    // onChange={onChange}
+                    // value={movie.vote_average}
+                  />
+                </Col>
+                <Col span={4}>
+                  <InputNumber
+                    min={0}
+                    max={10}
+                    style={{ margin: '0 16px' }}
+                    // value={movie.vote_average}
+                    // onChange={onChange}
+                  />
+                </Col>
+              </Row>
             </div>
             <div className="item">
               <h3>RUNTIME</h3>
-              <Input placeholder="minutes" />
+              <Input placeholder="minutes" /*value={movie.runtime}*/ />
             </div>
           </div>
         </div>
         <h3>OVERVIEW</h3>
-        <TextArea rows={4} placeholder="Movie description" />
+        <TextArea
+          autoSize={{ minRows: 4, maxRows: 10 }}
+          placeholder="Movie description"
+          // value={movie.overview}
+        />
       </Modal>
-    </div>
+    </form>
   );
 };

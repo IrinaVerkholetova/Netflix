@@ -1,9 +1,16 @@
 import React from 'react';
-import './logo.css';
+import css from './logo.module.css';
+import { useNavigate } from 'react-router-dom';
 
-export const Netflix = () => {
+export const Netflix = ({ ...props }) => {
+  const navigate = useNavigate();
+  const handleClick = (event) => {
+    event.stopPropagation();
+    navigate('/');
+  };
+
   return (
-    <span className="titleContainer">
+    <span className={css.titleContainer} {...props} onClick={handleClick}>
       <b>netflix</b>roulette
     </span>
   );

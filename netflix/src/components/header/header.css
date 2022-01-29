@@ -4,18 +4,35 @@ h1 {
   font-size: 40px;
 }
 
-.headerContainer {
+.background {
+  position: relative;
+  overflow: hidden;
   height: 396px;
-  background: #232323;
-  margin: 23px 46px;
+  width: 100%;
+  z-index: 2;
   background: url(https://appmaxx.com/wp-content/uploads/2019/09/hulu-protiv-netfliks-kakoj-televizor-potokovogo-platformy-vy-vybiraete.jpg);
+  background-size: cover;
+}
+
+.background:before {
+  background: rgba(50, 50, 50, 0.8);
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 396px;
+  z-index: -1;
+}
+
+.background__content {
+  height: 396px;
+  margin: 0px 60px;
 }
 
 .search {
   margin: 38px 90px;
 }
 .search input {
-  background: #323232cc;
+  background: rgba(50, 50, 50, 0.8);
   border-color: transparent;
   border-radius: 4px;
   color: #ffffff;
@@ -23,7 +40,8 @@ h1 {
   height: 57px;
   font-size: 20px;
 }
-.search input:active {
+.search input:active,
+search input:focus {
   border-color: transparent;
 }
 .search button {
@@ -34,4 +52,27 @@ h1 {
   width: 233px;
   height: 57px;
   font-size: 20px;
+}
+
+.addMovie {
+  width: 177px;
+  height: 46px;
+  color: #f65261;
+  font-size: 20px;
+  font-weight: 600;
+  background: rgba(96, 96, 96, 0.68);
+  border-radius: 4px;
+  border-color: transparent;
+  margin-right: 15px;
+}
+
+a {
+  color: #f65261 !important;
+  font-size: 20px !important;
+  text-decoration: #f65261;
+}
+
+.currentUser {
+  font-size: 20px;
+  color: #f65261;
 }

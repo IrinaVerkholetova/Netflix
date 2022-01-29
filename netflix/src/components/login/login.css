@@ -1,0 +1,65 @@
+.loginContainer {
+  background: url(https://appmaxx.com/wp-content/uploads/2019/09/hulu-protiv-netfliks-kakoj-televizor-potokovogo-platformy-vy-vybiraete.jpg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 100px;
+}
+
+.loginContainer:before {
+  background: rgba(50, 50, 50, 0.8);
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.formLogin {
+  width: 686px;
+  display: flex;
+  flex-direction: column;
+  background: #232323;
+  padding-top: 26px;
+  padding-bottom: 64px;
+}
+
+.buttonLogin {
+  width: 186px;
+  margin-left: 15px;
+}
+
+.ant-form {
+  width: 100%;
+  margin-left: 90px;
+}
+
+.ant-form label {
+  font-size: 16px;
+  color: #f65261;
+}
+
+.ant-input-password-icon {
+  color: #f65261;
+}
+
+.ant-form-item-control-input-content {
+  text-align: right;
+}
+
+.ant-input-affix-wrapper,
+.ant-form-item-has-error
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
+.ant-form-item-has-error
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
+.ant-form-item-has-warning
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
+.ant-form-item-has-warning
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:active {
+  background-color: #323232f2;
+  border-color: transparent;
+}

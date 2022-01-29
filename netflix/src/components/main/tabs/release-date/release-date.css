@@ -1,0 +1,25 @@
+@import '~antd/dist/antd.css';
+
+.releaseDate {
+  width: 165px !important;
+  color: #fff !important;
+}
+
+.releaseDate input {
+  font-size: 16px;
+}
+
+.ant-picker-date-panel {
+  color: #fff !important;
+}
+
+.ant-tabs-extra-content {
+  width: 270px;
+}
+.ant-select-arrow {
+  color: #f65261;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background: transparent;
+  border: none;
+}

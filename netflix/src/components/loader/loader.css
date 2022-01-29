@@ -1,0 +1,32 @@
+.loaderContainer {
+  background-color: #232323;
+  height: 100vh;
+  padding: 60px;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.ant-spin-dot-item {
+  background-color: #f65261;
+}
+
+.ant-spin-text {
+  color: #f65261;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.ant-spin-lg .ant-spin-dot {
+  font-size: 40px;
+}
+
+.ant-spin-lg .ant-spin-dot i {
+  width: 20px;
+  height: 20px;
+}

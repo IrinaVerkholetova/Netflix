@@ -36,11 +36,13 @@ h3 {
 
 .ant-btn,
 .ant-btn:hover,
-.ant-btn:active,
-.ant-btn:focus {
+.ant-btn:active {
   border: 1px solid #f65261;
   color: #f65261;
   background: transparent;
+  /* font-size: 20px;
+  width: 180px;
+  height: 57px; */
 }
 
 .ant-btn-primary,
@@ -51,6 +53,9 @@ h3 {
   color: #fff;
   background: #f65261;
   border: 1px solid #f65261;
+  /* font-size: 20px;
+  width: 180px;
+  height: 57px; */
 }
 
 .ant-modal-header {
@@ -114,4 +119,18 @@ h3 {
 .ant-picker-date-panel .ant-picker-body {
   background-color: rgba(50, 50, 50, 1) !important;
   color: #fff !important;
+}
+
+.ant-slider-track,
+.ant-slider:hover .ant-slider-track {
+  background-color: #f65261;
+}
+
+.ant-slider-handle,
+.ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+  border: solid 2px #f65261;
+}
+
+.ant-slider-handle.ant-tooltip-open {
+  border-color: #f65261;
 }
