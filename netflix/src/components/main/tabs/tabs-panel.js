@@ -22,7 +22,7 @@ export const TabsPanel = ({ list }) => {
         {genres.map((item) => {
           return (
             <TabPane tab={item.category.toUpperCase()} key={item.key}>
-              <WrapperMoviesList list={list} genre={item.category} />
+              <WrapperMoviesList list={list} genre={item.category} Component={MoviesList} />
             </TabPane>
           );
         })}

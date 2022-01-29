@@ -1,9 +1,6 @@
 import React from 'react';
 import css from './movies-list.module.css';
 import { MovieCard } from '../movie-card/movie-card';
-import { useNavigate } from 'react-router-dom';
-import ToolServices from './../../../helper/services';
-import { WrapperMoviesList } from './wrapper-movies-list';
 
 // export const MoviesList = ({ list, genre }) => {
 //   const navigate = useNavigate();
