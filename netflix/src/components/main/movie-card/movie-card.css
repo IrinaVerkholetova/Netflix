@@ -42,17 +42,11 @@
 
 .imgMovie {
   width: 324px;
-  /* position: relative; */
 }
 
 .imgMovie:before {
   content: "Sorry, the image isn't available";
   width: 324px;
-  /* background-color: #232323; */
-  /* z-index: 2; */
-  /* position: absolute;
-  top: 0;
-  left: 0; */
   display: flex;
   margin-bottom: 10px;
   color: #f65261;

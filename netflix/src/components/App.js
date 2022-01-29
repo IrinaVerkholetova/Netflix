@@ -21,8 +21,6 @@ export default function App() {
       });
   }, []);
 
-  console.log(repos);
-
   return (
     <Routes>
       <Route

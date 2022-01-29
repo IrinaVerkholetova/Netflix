@@ -36,7 +36,8 @@ h3 {
 
 .ant-btn,
 .ant-btn:hover,
-.ant-btn:active {
+.ant-btn:active,
+.ant-btn:focus {
   border: 1px solid #f65261;
   color: #f65261;
   background: transparent;

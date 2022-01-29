@@ -14,12 +14,12 @@ export const AboutMovie = ({ list }) => {
 
   const movie = ToolServices.foundMovie(list, currentMovieId);
 
-  // useEffect(() => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: 'smooth',
-  //   });
-  // }, [currentMovieId]);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [currentMovieId]);
 
   return movie ? (
     <div className="aboutMovieContainer">

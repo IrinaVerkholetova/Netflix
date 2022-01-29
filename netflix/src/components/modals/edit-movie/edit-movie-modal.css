@@ -120,3 +120,17 @@ h3 {
   background-color: rgba(50, 50, 50, 1) !important;
   color: #fff !important;
 }
+
+.ant-slider-track,
+.ant-slider:hover .ant-slider-track {
+  background-color: #f65261;
+}
+
+.ant-slider-handle,
+.ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+  border: solid 2px #f65261;
+}
+
+.ant-slider-handle.ant-tooltip-open {
+  border-color: #f65261;
+}
