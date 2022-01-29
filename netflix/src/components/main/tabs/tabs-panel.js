@@ -4,6 +4,7 @@ import { Tabs } from 'antd';
 import { ReleaseDate } from './release-date/release-date';
 import { MoviesList } from '../movies-list/movies-list';
 import { genres } from '../../../helper/constants/categories';
+import { Counter } from '../../counter/counter';
 
 export const TabsPanel = ({ list }) => {
   const { TabPane } = Tabs;
@@ -21,6 +22,7 @@ export const TabsPanel = ({ list }) => {
         {genres.map((item) => {
           return (
             <TabPane tab={item.category.toUpperCase()} key={item.key}>
+              <Counter />
               <MoviesList list={list} genre={item.category} />
             </TabPane>
           );
