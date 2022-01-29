@@ -8,6 +8,8 @@ import { LoginPage } from './login/login';
 import { AboutMovie } from './header/about-movie/about-movie';
 import { WithLoading } from './loader/loader';
 
+export const StoreContext = React.createContext();
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [repos, setRepos] = useState(null);
@@ -22,35 +24,37 @@ export default function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <WithLoading isLoading={isLoading}>
-            <Header />
-            <TabsPanel list={repos} />
-            <Footer />
-          </WithLoading>
-        }
-      />
-      <Route
-        path="/aboutmovie/:id"
-        element={
-          <WithLoading isLoading={isLoading}>
-            <AboutMovie list={repos} />
-            <TabsPanel list={repos} />
-            <Footer />
-          </WithLoading>
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <WithLoading isLoading={isLoading}>
-            <LoginPage />
-          </WithLoading>
-        }
-      />
-    </Routes>
+    <StoreContext.Provider value="Irina Verkholetova">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <WithLoading isLoading={isLoading}>
+              <Header />
+              <TabsPanel list={repos} />
+              <Footer />
+            </WithLoading>
+          }
+        />
+        <Route
+          path="/aboutmovie/:id"
+          element={
+            <WithLoading isLoading={isLoading}>
+              <AboutMovie list={repos} />
+              <TabsPanel list={repos} />
+              <Footer />
+            </WithLoading>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <WithLoading isLoading={isLoading}>
+              <LoginPage />
+            </WithLoading>
+          }
+        />
+      </Routes>
+    </StoreContext.Provider>
   );
 }

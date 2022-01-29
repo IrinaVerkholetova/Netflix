@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './header.css';
 import { Input } from 'antd';
 import { PlusOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 import { AddMovie } from '../modals/add-movie/add-movie-modal';
 import { Netflix } from '../logo/logo';
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../App';
 
 export const Header = () => {
   const { Search } = Input;
+
+  const userName = useContext(StoreContext);
 
   const [visible, setVisible] = useState(false);
   const [isLogin, setLogin] = useState(false);
@@ -23,9 +26,9 @@ export const Header = () => {
             <button className="addMovie" onClick={() => setVisible(true)}>
               <PlusOutlined /> ADD MOVIE
             </button>
-            {isLogin ? (
+            {!isLogin ? (
               <span className="currentUser">
-                <UserOutlined /> user name
+                <UserOutlined /> {userName}
               </span>
             ) : (
               <Link to="/login" className="loginLink">
