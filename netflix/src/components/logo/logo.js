@@ -15,3 +15,18 @@ export const Netflix = ({ ...props }) => {
     </span>
   );
 };
+
+export class Netflix2 extends React.Component {
+  handleClick = (event) => {
+    event.stopPropagation();
+  };
+
+  render() {
+    console.log(this.state);
+    return (
+      <span className={css.titleContainer} {...this.props} onClick={this.handleClick}>
+        <b>netflix</b>roulette
+      </span>
+    );
+  }
+}
