@@ -1,6 +1,7 @@
 import React from 'react';
 import css from './movies-list.module.css';
 import { MovieCard } from '../movie-card/movie-card';
+import { WrapperMoviesList } from './wrapper-movies-list';
 
 // export const MoviesList = ({ list, genre }) => {
 //   const navigate = useNavigate();
@@ -41,7 +42,7 @@ import { MovieCard } from '../movie-card/movie-card';
 //   );
 // };
 
-export class MoviesList extends React.Component {
+class MoviesList extends React.Component {
   render() {
     const { moviesFilted, navigate } = this.props;
     return (
@@ -77,3 +78,5 @@ export class MoviesList extends React.Component {
     );
   }
 }
+
+export default WrapperMoviesList(MoviesList);
