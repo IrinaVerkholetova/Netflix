@@ -16,13 +16,20 @@ export const TabsPanel = ({ list }) => {
     </>
   );
 
+  const props = {};
+
   return (
     <div className="mainContainer">
       <Tabs defaultActiveKey={genres[0]} onChange={callback} tabBarExtraContent={operations}>
         {genres.map((item) => {
           return (
             <TabPane tab={item.category.toUpperCase()} key={item.key}>
-              <WrapperMoviesList list={list} genre={item.category} Component={MoviesList} />
+              <WrapperMoviesList
+                list={list}
+                genre={item.category}
+                Component={MoviesList}
+                {...props}
+              />
             </TabPane>
           );
         })}
