@@ -19,19 +19,19 @@ export default function App() {
       .then((json) => json.json())
       .then((repos) => {
         setIsLoading(false);
-        setRepos(repos?.data);
+        setRepos({ data: repos?.data, currentUser: 'Irina Verkholetova' });
       });
   }, []);
 
   return (
-    <StoreContext.Provider value="Irina Verkholetova">
+    <StoreContext.Provider value={repos}>
       <Routes>
         <Route
           path="/"
           element={
             <WithLoading isLoading={isLoading}>
               <Header />
-              <TabsPanel list={repos} />
+              <TabsPanel />
               <Footer />
             </WithLoading>
           }
@@ -40,8 +40,8 @@ export default function App() {
           path="/aboutmovie/:id"
           element={
             <WithLoading isLoading={isLoading}>
-              <AboutMovie list={repos} />
-              <TabsPanel list={repos} />
+              <AboutMovie />
+              <TabsPanel />
               <Footer />
             </WithLoading>
           }

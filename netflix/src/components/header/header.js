@@ -10,7 +10,7 @@ import { StoreContext } from '../App';
 export const Header = () => {
   const { Search } = Input;
 
-  const userName = useContext(StoreContext);
+  const context = useContext(StoreContext);
 
   const [visible, setVisible] = useState(false);
   const [isLogin, setLogin] = useState(false);
@@ -26,9 +26,9 @@ export const Header = () => {
             <button className="addMovie" onClick={() => setVisible(true)}>
               <PlusOutlined /> ADD MOVIE
             </button>
-            {!isLogin ? (
+            {isLogin ? (
               <span className="currentUser">
-                <UserOutlined /> {userName}
+                <UserOutlined /> {context?.currentUser}
               </span>
             ) : (
               <Link to="/login" className="loginLink">

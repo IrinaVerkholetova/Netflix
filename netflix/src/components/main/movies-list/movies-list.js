@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import css from './movies-list.module.css';
 import { MovieCard } from '../movie-card/movie-card';
 import { useNavigate } from 'react-router-dom';
 import ToolServices from './../../../helper/services';
+import { StoreContext } from '../../App';
 
-export const MoviesList = ({ list, genre }) => {
+export const MoviesList = ({ genre }) => {
   const navigate = useNavigate();
-
-  const moviesFilted = ToolServices.moviesFilted(list, genre);
+  const context = useContext(StoreContext);
+  const moviesFilted = useMemo(
+    () => ToolServices.moviesFilted(context?.data, genre),
+    [context?.data, genre],
+  );
 
   return (
     <>

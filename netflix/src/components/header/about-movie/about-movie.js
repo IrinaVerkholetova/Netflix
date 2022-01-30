@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import './about-movie.css';
 import { Netflix } from './../../logo/logo';
 import { Button } from 'antd';
@@ -6,13 +6,16 @@ import { SearchOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router-dom';
 import ToolServices from './../../../helper/services';
 import { MovieImage } from '../../main/movie-card/movie-image';
+import { StoreContext } from '../../App';
 
-export const AboutMovie = ({ list }) => {
+export const AboutMovie = () => {
   const location = useLocation();
-
   const currentMovieId = +location.pathname.split('/')[2];
-
-  const movie = ToolServices.foundMovie(list, currentMovieId);
+  const context = useContext(StoreContext);
+  const movie = useMemo(
+    () => ToolServices.foundMovie(context?.data, currentMovieId),
+    [context?.data, currentMovieId],
+  );
 
   useEffect(() => {
     window.scrollTo({
@@ -21,7 +24,7 @@ export const AboutMovie = ({ list }) => {
     });
   }, [currentMovieId]);
 
-  return movie ? (
+  return (
     <div className="aboutMovieContainer">
       <div className="header">
         <Netflix />
@@ -46,5 +49,5 @@ export const AboutMovie = ({ list }) => {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 };
