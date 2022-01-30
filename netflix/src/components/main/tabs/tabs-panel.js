@@ -2,8 +2,9 @@ import React from 'react';
 import './tabs-panel.css';
 import { Tabs } from 'antd';
 import { ReleaseDate } from './release-date/release-date';
-import { MoviesList } from '../movies-list/movies-list';
+import MoviesList from '../movies-list/movies-list';
 import { genres } from '../../../helper/constants/categories';
+import { WrapperMoviesList } from '../movies-list/wrapper-movies-list';
 
 export const TabsPanel = ({ list }) => {
   const { TabPane } = Tabs;
@@ -15,6 +16,8 @@ export const TabsPanel = ({ list }) => {
     </>
   );
 
+  // const props = {};
+
   return (
     <div className="mainContainer">
       <Tabs defaultActiveKey={genres[0]} onChange={callback} tabBarExtraContent={operations}>
@@ -22,6 +25,13 @@ export const TabsPanel = ({ list }) => {
           return (
             <TabPane tab={item.category.toUpperCase()} key={item.key}>
               <MoviesList list={list} genre={item.category} />
+
+              {/* </WrapperMoviesList>
+                list={list}
+                genre={item.category}
+                Component={MoviesList}
+                {...props}
+              /> */}
             </TabPane>
           );
         })}

@@ -9,3 +9,13 @@ export const Footer = () => {
     </div>
   );
 };
+
+export class Footer2 extends React.Component {
+  render() {
+    return (
+      <div className="footerContainer">
+        <Netflix />
+      </div>
+    );
+  }
+}

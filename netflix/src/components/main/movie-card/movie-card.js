@@ -70,3 +70,76 @@ export const MovieCard = ({ movie }) => {
     </div>
   );
 };
+
+export class MovieCard2 extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      editMovie: false,
+      delMovie: false,
+    };
+  }
+
+  menu = (
+    <Menu>
+      <Menu.Item>
+        <Button
+          className="actionButton"
+          onClick={(event) => {
+            event.stopPropagation();
+            this.setState(() => ({ editMovie: true }));
+          }}
+        >
+          Edit
+        </Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button
+          className="actionButton"
+          onClick={(event) => {
+            event.stopPropagation();
+            this.setState(() => ({ delMovie: true }));
+          }}
+        >
+          Delete
+        </Button>
+      </Menu.Item>
+    </Menu>
+  );
+
+  render() {
+    return (
+      <div className="container">
+        {this.state.delMovie && (
+          <DeleteMovie
+            message="The movie has been deleted from database successfully"
+            movie={this.props.movie}
+            visible={this.state.delMovie}
+            setVisible={this.setState(() => ({ delMovie: true }))}
+          />
+        )}
+        {this.state.editMovie && (
+          <EditMovie
+            message={'The movie has been updated to database successfully'}
+            movie={this.props.movie}
+            visible={this.state.editMovie}
+            setVisible={this.setState(() => ({ editMovie: true }))}
+          />
+        )}
+
+        <Dropdown overlay={this.menu} placement="bottomCenter">
+          <Button className="actions" onClick={(event) => event.stopPropagation()}>
+            <MoreOutlined />
+          </Button>
+        </Dropdown>
+
+        <MovieImage movie={this.props.movie} />
+        <div className="movie_year">
+          <h2 className="movie_name">{this.props.movie.title}</h2>
+          <div className="year">{this.props.movie.release_date.split('-')[0]}</div>
+        </div>
+        <span className="genre">{this.props.movie.genres.join(' & ')}</span>
+      </div>
+    );
+  }
+}
