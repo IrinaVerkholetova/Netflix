@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import './tabs-panel.css';
 import { Tabs } from 'antd';
 import { ReleaseDate } from './release-date/release-date';
-import { MoviesList } from '../movies-list/movies-list';
+import MoviesList from '../movies-list/movies-list';
 import { genres } from '../../../helper/constants/categories';
 
 export const TabsPanel = () => {

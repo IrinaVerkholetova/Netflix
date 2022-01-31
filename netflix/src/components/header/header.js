@@ -1,16 +1,15 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './header.css';
 import { Input } from 'antd';
 import { PlusOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 import { AddMovie } from '../modals/add-movie/add-movie-modal';
 import { Netflix } from '../logo/logo';
 import { Link } from 'react-router-dom';
-import { StoreContext } from '../App';
+import { withContext } from './../with-context';
 
-export const Header = () => {
+const Header = (props) => {
   const { Search } = Input;
-
-  const context = useContext(StoreContext);
+  const { context } = props;
 
   const [visible, setVisible] = useState(false);
   const [isLogin, setLogin] = useState(false);
@@ -56,3 +55,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default withContext(Header);

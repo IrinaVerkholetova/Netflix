@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import './about-movie.css';
 import { Netflix } from './../../logo/logo';
 import { Button } from 'antd';
@@ -6,12 +6,14 @@ import { SearchOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router-dom';
 import ToolServices from './../../../helper/services';
 import { MovieImage } from '../../main/movie-card/movie-image';
-import { StoreContext } from '../../App';
+import { withContext } from './../../with-context';
 
-export const AboutMovie = () => {
+const AboutMovie = (props) => {
+  const { context } = props;
+
   const location = useLocation();
   const currentMovieId = +location.pathname.split('/')[2];
-  const context = useContext(StoreContext);
+
   const movie = useMemo(
     () => ToolServices.foundMovie(context?.data, currentMovieId),
     [context?.data, currentMovieId],
@@ -24,7 +26,7 @@ export const AboutMovie = () => {
     });
   }, [currentMovieId]);
 
-  return (
+  return movie ? (
     <div className="aboutMovieContainer">
       <div className="header">
         <Netflix />
@@ -49,5 +51,7 @@ export const AboutMovie = () => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
+
+export default withContext(AboutMovie);
