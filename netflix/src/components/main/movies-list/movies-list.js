@@ -4,6 +4,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { useNavigate } from 'react-router-dom';
 import ToolServices from './../../../helper/services';
 import { withContext } from './../../with-context';
+import { withLog } from '../../with-log';
 
 const MoviesList = (props) => {
   const navigate = useNavigate();
@@ -48,4 +49,4 @@ const MoviesList = (props) => {
   );
 };
 
-export default withContext(MoviesList);
+export default withLog(withContext(MoviesList));
