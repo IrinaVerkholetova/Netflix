@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import './about-movie.css';
 import { Netflix } from './../../logo/logo';
 import { Button } from 'antd';
@@ -6,13 +6,18 @@ import { SearchOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router-dom';
 import ToolServices from './../../../helper/services';
 import { MovieImage } from '../../main/movie-card/movie-image';
+import { withContext } from './../../with-context';
 
-export const AboutMovie = ({ list }) => {
+const AboutMovie = (props) => {
+  const { context } = props;
+
   const location = useLocation();
-
   const currentMovieId = +location.pathname.split('/')[2];
 
-  const movie = ToolServices.foundMovie(list, currentMovieId);
+  const movie = useMemo(
+    () => ToolServices.foundMovie(context?.data, currentMovieId),
+    [context?.data, currentMovieId],
+  );
 
   useEffect(() => {
     window.scrollTo({
@@ -48,3 +53,5 @@ export const AboutMovie = ({ list }) => {
     </div>
   ) : null;
 };
+
+export default withContext(AboutMovie);

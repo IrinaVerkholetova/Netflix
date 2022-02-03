@@ -5,9 +5,11 @@ import { PlusOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
 import { AddMovie } from '../modals/add-movie/add-movie-modal';
 import { Netflix } from '../logo/logo';
 import { Link } from 'react-router-dom';
+import { withContext } from './../with-context';
 
-export const Header = () => {
+const Header = (props) => {
   const { Search } = Input;
+  const { context } = props;
 
   const [visible, setVisible] = useState(false);
   const [isLogin, setLogin] = useState(false);
@@ -25,7 +27,7 @@ export const Header = () => {
             </button>
             {isLogin ? (
               <span className="currentUser">
-                <UserOutlined /> user name
+                <UserOutlined /> {context?.currentUser}
               </span>
             ) : (
               <Link to="/login" className="loginLink">
@@ -53,3 +55,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default withContext(Header);
