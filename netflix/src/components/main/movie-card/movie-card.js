@@ -11,7 +11,7 @@ export const MovieCard = ({ movie }) => {
   const [delMovie, setDelMovie] = useState(false);
   const menu = (
     <Menu>
-      <Menu.Item>
+      <Menu.Item key="edit">
         <Button
           className="actionButton"
           onClick={(event) => {
@@ -22,7 +22,7 @@ export const MovieCard = ({ movie }) => {
           Edit
         </Button>
       </Menu.Item>
-      <Menu.Item>
+      <Menu.Item key="delete">
         <Button
           className="actionButton"
           onClick={(event) => {

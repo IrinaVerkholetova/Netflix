@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import css from './movies-list.module.css';
 import { MovieCard } from '../movie-card/movie-card';
 import { useNavigate } from 'react-router-dom';
-import ToolServices from './../../../helper/services';
+import ToolServices from '../../../helper/tool-services';
+import { connect } from 'react-redux';
 
-export const MoviesList = ({ list, genre }) => {
+const MoviesList = React.memo(({ moviesList, genre }) => {
   const navigate = useNavigate();
 
-  const moviesFilted = ToolServices.moviesFilted(list, genre);
+  const moviesFilted = useMemo(
+    () => ToolServices.moviesFilted(moviesList, genre),
+    [moviesList, genre],
+  );
 
   return (
     <>
@@ -41,4 +45,10 @@ export const MoviesList = ({ list, genre }) => {
       )}
     </>
   );
+});
+
+const mapStateToProps = ({ moviesList }) => {
+  return { moviesList };
 };
+
+export default connect(mapStateToProps)(MoviesList);

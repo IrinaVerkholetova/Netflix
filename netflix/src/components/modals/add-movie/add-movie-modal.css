@@ -115,3 +115,8 @@ h3 {
   background-color: rgba(50, 50, 50, 1) !important;
   color: #fff !important;
 }
+
+.runtime input {
+  width: 100px;
+  height: 26px;
+}
