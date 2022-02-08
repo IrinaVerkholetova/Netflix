@@ -17,6 +17,8 @@ export const reducer = (state = initialListState, action) => {
       return { ...state, moviesList: action.payload };
     case ActionTypes.GET_MOVIE_BY_ID:
       return { ...state, currentMovie: action.payload };
+    case ActionTypes.ADD_NEW_MOVIE:
+      return { ...state, moviesList: [...state.moviesList, action.payload] };
 
     default:
       return state;

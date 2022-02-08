@@ -34,6 +34,14 @@ h3 {
   border-radius: 4px;
 }
 
+.addMovieButtons {
+  text-align: end;
+}
+
+.resetButton {
+  margin-right: 10px;
+}
+
 .ant-btn,
 .ant-btn:hover,
 .ant-btn:active,
@@ -79,7 +87,8 @@ h3 {
 }
 
 .ant-input,
-.ant-picker {
+.ant-picker,
+.ant-input-number {
   background-color: rgba(50, 50, 50, 0.95) !important;
   color: rgba(255, 255, 255, 1) !important;
   border: none;
@@ -87,7 +96,10 @@ h3 {
   width: 100%;
 }
 
-.ant-input-group-addon {
+.ant-input-group-addon,
+.ant-form-item-has-error
+  .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input)
+  .ant-select-selector {
   background-color: rgba(50, 50, 50, 0.95);
   color: rgba(255, 255, 255, 1);
 }
@@ -114,9 +126,4 @@ h3 {
 .ant-picker-date-panel .ant-picker-body {
   background-color: rgba(50, 50, 50, 1) !important;
   color: #fff !important;
-}
-
-.runtime input {
-  width: 100px;
-  height: 26px;
 }
