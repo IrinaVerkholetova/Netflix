@@ -18,7 +18,10 @@ export const EditMovie = ({ message, movie, visible, setVisible }) => {
   const updateMovieAction = (form, callback) =>
     dispatch(moviesThunkActions.updateMovieThunk(form, callback));
 
-  const handleCancel = () => setVisible(false);
+  const handleCancel = (event) => {
+    event.stopPropagation();
+    setVisible(false);
+  };
 
   const onFinish = (values) => {
     const callback = () => {
@@ -34,6 +37,7 @@ export const EditMovie = ({ message, movie, visible, setVisible }) => {
       <Form
         onFinish={onFinish}
         initialValues={{ ...movie, release_date: moment(movie.release_date, 'YYYY-MM-DD') }}
+        onClick={(event) => event.stopPropagation()}
       >
         <div className="formContainer">
           <div className="column">

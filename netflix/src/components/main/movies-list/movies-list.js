@@ -32,10 +32,7 @@ const MoviesList = React.memo(({ moviesList, genre }) => {
               <li
                 key={item.id}
                 className={css.card}
-                onClick={(event) => {
-                  // event.stopPropagation();
-                  navigate(`/aboutmovie/${item.id}`);
-                }}
+                onClick={() => navigate(`/aboutmovie/${item.id}`)}
               >
                 <MovieCard movie={item} />
               </li>

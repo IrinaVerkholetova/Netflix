@@ -1,4 +1,12 @@
-import { setLoading, getMoviesList, getMovie, hasError, addMovie, updateMovie } from './actions';
+import {
+  setLoading,
+  getMoviesList,
+  getMovie,
+  setError,
+  addMovie,
+  updateMovie,
+  deleteMovie,
+} from './actions';
 
 export const moviesThunkActions = {
   getMoviesListThunk: () => async (dispatch) => {
@@ -15,8 +23,8 @@ export const moviesThunkActions = {
         dispatch(getMoviesList(response?.data));
       })
       .catch((error) => {
-        console.log('Error: ', error);
-        dispatch(hasError(true));
+        console.log(error);
+        dispatch(setError(true));
       });
     dispatch(setLoading(false));
   },
@@ -34,8 +42,8 @@ export const moviesThunkActions = {
         dispatch(getMovie(response));
       })
       .catch((error) => {
-        console.log('Error: ', error);
-        dispatch(hasError(true));
+        console.log(error);
+        dispatch(setError(true));
       });
   },
 
@@ -56,7 +64,7 @@ export const moviesThunkActions = {
       callback();
     } catch (error) {
       console.error(error);
-      dispatch(hasError(true));
+      dispatch(setError(true));
     }
   },
 
@@ -78,9 +86,23 @@ export const moviesThunkActions = {
       callback();
     } catch (error) {
       console.error(error);
-      dispatch(hasError(true));
+      dispatch(setError(true));
     }
   },
 
-  //   deleteMovieThunk: () => async (dispatch) => {},
+  deleteMovieThunk: (id) => async (dispatch) => {
+    console.log('id', id);
+    try {
+      const requestOptions = { method: 'DELETE' };
+      const response = await fetch(`http://localhost:4000/movies/${id}`, requestOptions);
+      if (!response.ok) {
+        const message = 'Error with Status Code: ' + response.status;
+        throw new Error(message);
+      }
+      dispatch(deleteMovie(id));
+    } catch (error) {
+      console.error(error);
+      dispatch(setError(true));
+    }
+  },
 };

@@ -11,7 +11,7 @@ export const getMoviesList = createAction(ActionTypes.GET_MOVIES_LIST, (list) =>
   payload: list,
 }));
 export const getMovie = createAction(ActionTypes.GET_MOVIE_BY_ID, (movie) => ({ payload: movie }));
-export const hasError = createAction(ActionTypes.HAS_ERROR, (status) => ({ payload: status }));
+export const setError = createAction(ActionTypes.HAS_ERROR, (status) => ({ payload: status }));
 export const addMovie = createAction(ActionTypes.ADD_NEW_MOVIE, (movie) => ({ payload: movie }));
 export const updateMovie = createAction(ActionTypes.UPDATE_MOVIE_BY_ID, (movie) => ({
   payload: movie,
