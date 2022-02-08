@@ -125,7 +125,7 @@ export const AddMovie = ({ message, visible, setVisible }) => {
           <TextArea autoSize={{ minRows: 4, maxRows: 10 }} placeholder="Movie description" />
         </Form.Item>
 
-        <Form.Item className="addMovieButtons">
+        <Form.Item className="modalButtons">
           <Button key="back" onClick={handleCancel} className="resetButton">
             RESET
           </Button>

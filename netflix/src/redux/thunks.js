@@ -1,4 +1,4 @@
-import { setLoading, getMoviesList, getMovie, hasError, addMovie } from './actions';
+import { setLoading, getMoviesList, getMovie, hasError, addMovie, updateMovie } from './actions';
 
 export const moviesThunkActions = {
   getMoviesListThunk: () => async (dispatch) => {
@@ -6,7 +6,8 @@ export const moviesThunkActions = {
     await fetch(`http://localhost:4000/movies`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error occurred!');
+          const message = 'Error with Status Code: ' + response.status;
+          throw new Error(message);
         }
         return response.json();
       })
@@ -24,7 +25,8 @@ export const moviesThunkActions = {
     await fetch(`http://localhost:4000/movies/${id}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error occurred!');
+          const message = 'Error with Status Code: ' + response.status;
+          throw new Error(message);
         }
         return response.json();
       })
@@ -39,23 +41,46 @@ export const moviesThunkActions = {
 
   addMovieThunk: (submitData, callback) => async (dispatch) => {
     try {
-      const response = await fetch('http://localhost:4000/movies', {
+      const requestOptions = {
         method: 'POST',
         body: JSON.stringify(submitData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+        headers: { 'Content-Type': 'application/json' },
+      };
+      const response = await fetch('http://localhost:4000/movies', requestOptions);
+      if (!response.ok) {
+        const message = 'Error with Status Code: ' + response.status;
+        throw new Error(message);
+      }
       const result = await response.json();
       dispatch(addMovie(result));
       callback();
     } catch (error) {
-      console.error('Ошибка:', error);
+      console.error(error);
       dispatch(hasError(true));
     }
   },
 
-  //   updateMovieThunk: () => async (dispatch) => {},
+  updateMovieThunk: (submitData, callback) => async (dispatch) => {
+    try {
+      const requestOptions = {
+        method: 'PUT',
+        body: JSON.stringify(submitData),
+        headers: { 'Content-Type': 'application/json' },
+      };
+      const response = await fetch(`http://localhost:4000/movies`, requestOptions);
+      if (!response.ok) {
+        const message = 'Error with Status Code: ' + response.status;
+        throw new Error(message);
+      }
+      const result = await response.json();
+      dispatch(updateMovie(result));
+      dispatch(getMovie(result));
+      callback();
+    } catch (error) {
+      console.error(error);
+      dispatch(hasError(true));
+    }
+  },
 
   //   deleteMovieThunk: () => async (dispatch) => {},
 };
