@@ -1,33 +1,35 @@
-import React, { useMemo } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { getFilteredMoviesList, useAppSelector } from '../../../redux/selectors';
+
 import css from './movies-list.module.css';
 import { MovieCard } from '../movie-card/movie-card';
-import { useNavigate } from 'react-router-dom';
-import ToolServices from '../../../helper/tool-services';
-import { connect } from 'react-redux';
 
-const MoviesList = React.memo(({ moviesList, genre }) => {
+const MoviesList = React.memo(({ genre }) => {
   const navigate = useNavigate();
+  const moviesFiltered = useAppSelector((state) => getFilteredMoviesList(state)(genre));
 
-  const moviesFilted = useMemo(
-    () => ToolServices.moviesFilted(moviesList, genre),
-    [moviesList, genre],
-  );
+  // const moviesFiltered = useMemo(
+  //   () => ToolServices.moviesFilted(moviesList, genre),
+  //   [moviesList, genre],
+  // );
 
   return (
     <>
       <div className={css.result}>
-        {moviesFilted?.length ? (
+        {moviesFiltered?.length ? (
           <span>
-            <b>{moviesFilted.length}</b> movies found
+            <b>{moviesFiltered.length}</b> movies found
           </span>
         ) : (
           <span>Not results found</span>
         )}
       </div>
 
-      {!!moviesFilted?.length && (
+      {!!moviesFiltered?.length && (
         <ul className={css.container}>
-          {moviesFilted.map((item) => {
+          {moviesFiltered.map((item) => {
             return (
               <li
                 key={item.id}
@@ -44,8 +46,8 @@ const MoviesList = React.memo(({ moviesList, genre }) => {
   );
 });
 
-const mapStateToProps = ({ moviesList }) => {
-  return { moviesList };
-};
-
-export default connect(mapStateToProps)(MoviesList);
+// const mapStateToProps = ({ moviesList }) => {
+//   return { moviesList };
+// };
+// export default connect(mapStateToProps)(MoviesList);
+export default MoviesList;

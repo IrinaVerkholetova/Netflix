@@ -90,8 +90,7 @@ export const moviesThunkActions = {
     }
   },
 
-  deleteMovieThunk: (id) => async (dispatch) => {
-    console.log('id', id);
+  deleteMovieThunk: (id, callback) => async (dispatch) => {
     try {
       const requestOptions = { method: 'DELETE' };
       const response = await fetch(`http://localhost:4000/movies/${id}`, requestOptions);
@@ -100,6 +99,7 @@ export const moviesThunkActions = {
         throw new Error(message);
       }
       dispatch(deleteMovie(id));
+      callback();
     } catch (error) {
       console.error(error);
       dispatch(setError(true));
