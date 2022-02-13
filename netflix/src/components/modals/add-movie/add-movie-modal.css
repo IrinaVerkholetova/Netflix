@@ -127,3 +127,40 @@ h3 {
   background-color: rgba(50, 50, 50, 1) !important;
   color: #fff !important;
 }
+
+/* For Custom modal */
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-right: 10px;
+}
+
+.second {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.row .input,
+.row .genre {
+  height: 40px;
+}
+
+.row .input,
+.row .genre,
+.movie_overview {
+  background-color: rgba(50, 50, 50, 0.95);
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+}
