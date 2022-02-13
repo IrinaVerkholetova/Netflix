@@ -1,0 +1,57 @@
+#modal {
+  margin: 70px auto;
+  padding: 20px;
+  background-color: rgba(35, 35, 35, 1);
+  border-radius: 5px;
+  width: 50%;
+  top: 10%;
+  left: 25%;
+  position: fixed;
+  z-index: 3;
+  transition: all 5s ease-in-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.content h1 {
+  margin: 0 !important;
+}
+
+.content .close {
+  position: absolute;
+  right: 0;
+  transition: all 200ms;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #f65261;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.content .buttons {
+  text-align: end;
+  margin: 10px 0;
+}
+
+.content .buttons .resetButton {
+  margin-right: 10px;
+  border: 1px solid #f65261;
+  color: #f65261;
+  background: transparent;
+  width: 150px;
+  height: 40px;
+}
+
+.content .buttons .submitButton {
+  color: #fff;
+  background: #f65261;
+  border: 1px solid #f65261;
+  width: 150px;
+  height: 40px;
+}
