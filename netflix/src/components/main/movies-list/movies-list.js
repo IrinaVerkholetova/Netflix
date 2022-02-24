@@ -5,6 +5,7 @@ import { getFilteredMoviesList, useAppSelector } from '../../../redux/selectors'
 
 import css from './movies-list.module.css';
 import { MovieCard } from '../movie-card/movie-card';
+import { PropTypes } from 'prop-types';
 
 const MoviesList = React.memo(({ genre }) => {
   const navigate = useNavigate();
@@ -51,3 +52,7 @@ const MoviesList = React.memo(({ genre }) => {
 // };
 // export default connect(mapStateToProps)(MoviesList);
 export default MoviesList;
+
+MoviesList.propTypes = {
+  genre: PropTypes.array,
+};

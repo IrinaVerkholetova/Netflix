@@ -4,6 +4,15 @@ h1 {
   font-size: 40px;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 60px;
+  padding: 23px 0;
+}
+
 .background {
   position: relative;
   overflow: hidden;

@@ -3,10 +3,11 @@ import './movie-card.css';
 import { Button, Dropdown, Menu, Tooltip } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 import { DeleteMovie } from '../../modals/delete-movie/delete-movie';
-import { EditMovie } from '../../modals/edit-movie/edit-movie-modal';
+import { EditMovie } from '../../modals/edit-movie-modal';
 import { MovieImage } from './movie-image';
 import { useSelector, shallowEqual } from 'react-redux';
 import { getCurrentUser } from './../../../redux/selectors';
+import { PropTypes } from 'prop-types';
 
 export const MovieCard = ({ movie }) => {
   const currentUser = useSelector(getCurrentUser, shallowEqual);
@@ -79,4 +80,8 @@ export const MovieCard = ({ movie }) => {
       <span className="genre">{movie.genres.join(' & ')}</span>
     </div>
   );
+};
+
+MovieCard.propTypes = {
+  movie: PropTypes.object,
 };

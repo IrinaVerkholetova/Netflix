@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import './delete-movie.css';
 
 import { useNavigate } from 'react-router-dom';
@@ -45,4 +46,11 @@ export const DeleteMovie = ({ message, movie, visible, setVisible }) => {
       <div className="messageContainer">Are you sure you want to delete this movie?</div>
     </Modal>
   );
+};
+
+DeleteMovie.propTypes = {
+  message: PropTypes.string,
+  movie: PropTypes.object,
+  visible: PropTypes.bool,
+  setVisible: PropTypes.func,
 };

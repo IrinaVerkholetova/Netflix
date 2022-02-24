@@ -23,13 +23,11 @@ export const LoginPage = () => {
     form.resetFields();
   };
 
-  const validateMessages = {
-    required: "'${name}' is required!",
-  };
+  const validateMessages = { required: "'${name}' is required!" };
 
   return (
     <div className="loginContainer">
-      <Netflix style={{ marginTop: '60px', fontSize: '48px' }} />
+      <Netflix style={{ fontSize: '48px' }} />
       <div className="formLogin">
         <h1>LOG IN</h1>
         <Form

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './header.css';
 import { Input, Tooltip } from 'antd';
 import { PlusOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
-import { AddMovie } from '../modals/add-movie/add-movie-modal';
+import { AddMovie } from '../modals/add-movie-modal';
 import { Netflix } from '../logo/logo';
 import { Link } from 'react-router-dom';
 import { useSelector, shallowEqual } from 'react-redux';
