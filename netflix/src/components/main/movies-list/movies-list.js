@@ -54,5 +54,5 @@ const MoviesList = React.memo(({ genre }) => {
 export default MoviesList;
 
 MoviesList.propTypes = {
-  genre: PropTypes.array,
+  genre: PropTypes.string,
 };

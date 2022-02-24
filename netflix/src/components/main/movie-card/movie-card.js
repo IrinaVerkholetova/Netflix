@@ -44,22 +44,8 @@ export const MovieCard = ({ movie }) => {
 
   return (
     <div className="container">
-      {delMovie && (
-        <DeleteMovie
-          message="The movie has been deleted from database successfully"
-          movie={movie}
-          visible={delMovie}
-          setVisible={setDelMovie}
-        />
-      )}
-      {editMovie && (
-        <EditMovie
-          message={'The movie has been updated to database successfully'}
-          movie={movie}
-          visible={editMovie}
-          setVisible={setEditMovie}
-        />
-      )}
+      {delMovie && <DeleteMovie movieId={movie.id} visible={delMovie} setVisible={setDelMovie} />}
+      {editMovie && <EditMovie movie={movie} visible={editMovie} setVisible={setEditMovie} />}
 
       <Dropdown disabled={!currentUser?.login} overlay={menu} placement="bottomCenter">
         <Tooltip

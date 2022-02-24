@@ -12,6 +12,10 @@
   height: 100%;
 }
 
+.loader h3 {
+  color: #f65261;
+}
+
 .ant-spin-dot-item {
   background-color: #f65261;
 }

@@ -5,12 +5,12 @@ import moment from 'moment';
 import { moviesThunkActions } from '../../redux/thunks';
 import { CustomModalForm } from './custom-modal-form/custom-modal-form';
 
-export const EditMovie = ({ message, movie, visible, setVisible }) => {
+export const EditMovie = ({ movie, visible, setVisible }) => {
   const defaultValues = { ...movie, release_date: moment(movie.release_date, 'YYYY-MM-DD') };
 
   const ModalProps = {
     action: moviesThunkActions.updateMovieThunk,
-    message,
+    message: 'The movie has been updated to database successfully',
     title: 'EDIT MOVIE',
     initialValues: defaultValues,
     movie,
@@ -22,7 +22,6 @@ export const EditMovie = ({ message, movie, visible, setVisible }) => {
 };
 
 EditMovie.propTypes = {
-  message: PropTypes.string,
   movie: PropTypes.object,
   visible: PropTypes.bool,
   setVisible: PropTypes.func,

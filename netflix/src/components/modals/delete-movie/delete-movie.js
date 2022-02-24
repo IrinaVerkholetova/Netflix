@@ -10,20 +10,20 @@ import { useDispatch } from 'react-redux';
 import { Modal, Button } from 'antd';
 import { SuccessNotification } from '../successful-notification/successful-notification';
 
-export const DeleteMovie = ({ message, movie, visible, setVisible }) => {
+export const DeleteMovie = ({ movieId, visible, setVisible }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const deleteMovieAction = (id, callback) =>
-    dispatch(moviesThunkActions.deleteMovieThunk(id, callback));
+  const deleteMovieAction = (movieId, callback) =>
+    dispatch(moviesThunkActions.deleteMovieThunk(movieId, callback));
 
   const handleOk = (event) => {
     event.stopPropagation();
     const callback = () => {
-      setVisible(false);
-      navigate('/');
-      SuccessNotification(message);
+      SuccessNotification('The movie has been deleted from database successfully');
     };
-    deleteMovieAction(movie.id, callback);
+    deleteMovieAction(movieId, callback);
+    setVisible(false);
+    navigate('/');
   };
 
   const handleCancel = (event) => {
@@ -49,8 +49,7 @@ export const DeleteMovie = ({ message, movie, visible, setVisible }) => {
 };
 
 DeleteMovie.propTypes = {
-  message: PropTypes.string,
-  movie: PropTypes.object,
+  movieId: PropTypes.number,
   visible: PropTypes.bool,
   setVisible: PropTypes.func,
 };

@@ -48,13 +48,7 @@ export const Header = () => {
             )}
           </div>
         </div>
-        {visible && (
-          <AddMovie
-            message={'The movie has been added to database successfully'}
-            visible={visible}
-            setVisible={setVisible}
-          />
-        )}
+        {visible && <AddMovie visible={visible} setVisible={setVisible} />}
         <h1>FIND YOUR MOVIE</h1>
         <div className="search">
           <Search

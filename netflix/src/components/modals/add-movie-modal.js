@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { moviesThunkActions } from '../../redux/thunks';
 import { CustomModalForm } from './custom-modal-form/custom-modal-form';
 
-export const AddMovie = ({ message, visible, setVisible }) => {
+export const AddMovie = ({ visible, setVisible }) => {
   const defaultValues = {
     // title: 'La La Land',
     // vote_average: 7.9,
@@ -24,7 +24,7 @@ export const AddMovie = ({ message, visible, setVisible }) => {
 
   const ModalProps = {
     action: moviesThunkActions.addMovieThunk,
-    message,
+    message: 'The movie has been added to database successfully',
     title: 'ADD MOVIE',
     initialValues: defaultValues,
     visible,
@@ -35,7 +35,6 @@ export const AddMovie = ({ message, visible, setVisible }) => {
 };
 
 AddMovie.propTypes = {
-  message: PropTypes.string,
   visible: PropTypes.bool,
   setVisible: PropTypes.func,
 };
