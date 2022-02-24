@@ -11,3 +11,5 @@ export const getErrorStatus = (state) => state.hasError;
 export const getFilteredMoviesList = createSelector([getMoviesList], (moviesList) => (genre) => {
   return genre === 'All' ? moviesList : moviesList?.filter((item) => item.genres.includes(genre));
 });
+
+export const getCurrentUser = (state) => state.currentUser;

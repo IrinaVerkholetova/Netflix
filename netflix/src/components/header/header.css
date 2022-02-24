@@ -55,8 +55,6 @@ search input:focus {
 }
 
 .addMovie {
-  width: 177px;
-  height: 46px;
   color: #f65261;
   font-size: 20px;
   font-weight: 600;
@@ -64,6 +62,7 @@ search input:focus {
   border-radius: 4px;
   border-color: transparent;
   margin-right: 15px;
+  cursor: pointer;
 }
 
 a {

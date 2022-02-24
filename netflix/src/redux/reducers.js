@@ -5,6 +5,10 @@ export const initialListState = {
   currentMovie: {},
   isLoading: false,
   hasError: false,
+  currentUser: {
+    login: '',
+    password: '',
+  },
 };
 
 export const reducer = (state = initialListState, action) => {
@@ -27,6 +31,14 @@ export const reducer = (state = initialListState, action) => {
     case ActionTypes.DELETE_MOVIE:
       const filtredMoviesList = state.moviesList.filter((movie) => movie.id !== action.payload);
       return { ...state, moviesList: filtredMoviesList };
+    case ActionTypes.SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: {
+          login: action.payload.login,
+          password: action.payload.password,
+        },
+      };
 
     default:
       return state;

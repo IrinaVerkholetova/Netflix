@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import './movie-card.css';
-import { Button, Dropdown, Menu } from 'antd';
+import { Button, Dropdown, Menu, Tooltip } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 import { DeleteMovie } from '../../modals/delete-movie/delete-movie';
 import { EditMovie } from '../../modals/edit-movie/edit-movie-modal';
 import { MovieImage } from './movie-image';
+import { useSelector, shallowEqual } from 'react-redux';
+import { getCurrentUser } from './../../../redux/selectors';
 
 export const MovieCard = ({ movie }) => {
+  const currentUser = useSelector(getCurrentUser, shallowEqual);
+
   const [editMovie, setEditMovie] = useState(false);
   const [delMovie, setDelMovie] = useState(false);
+
   const menu = (
     <Menu>
       <Menu.Item key="edit">
@@ -55,10 +60,15 @@ export const MovieCard = ({ movie }) => {
         />
       )}
 
-      <Dropdown overlay={menu} placement="bottomCenter">
-        <Button className="actions" onClick={(event) => event.stopPropagation()}>
-          <MoreOutlined />
-        </Button>
+      <Dropdown disabled={!currentUser?.login} overlay={menu} placement="bottomCenter">
+        <Tooltip
+          placement="top"
+          title={!currentUser?.login && "You cann't edit or delete movie. You need log in."}
+        >
+          <Button className="actions" onClick={(event) => event.stopPropagation()}>
+            <MoreOutlined />
+          </Button>
+        </Tooltip>
       </Dropdown>
 
       <MovieImage movie={movie} />

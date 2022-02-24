@@ -10,7 +10,7 @@ export const Netflix = ({ ...props }) => {
   };
 
   return (
-    <span className={css.titleContainer} {...props} onClick={handleClick}>
+    <span className={css.titleContainer} title="Go to home" {...props} onClick={handleClick}>
       <b>netflix</b>roulette
     </span>
   );

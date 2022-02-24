@@ -17,3 +17,7 @@ export const updateMovie = createAction(ActionTypes.UPDATE_MOVIE_BY_ID, (movie) 
   payload: movie,
 }));
 export const deleteMovie = createAction(ActionTypes.DELETE_MOVIE, (id) => ({ payload: id }));
+
+export const setCurrentUser = createAction(ActionTypes.SET_CURRENT_USER, (form) => ({
+  payload: { login: form.login, password: form.password },
+}));
