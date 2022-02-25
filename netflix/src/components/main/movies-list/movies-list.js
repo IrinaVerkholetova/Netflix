@@ -7,14 +7,9 @@ import css from './movies-list.module.css';
 import { MovieCard } from '../movie-card/movie-card';
 import { PropTypes } from 'prop-types';
 
-const MoviesList = React.memo(({ genre }) => {
+const MoviesList = React.memo(({ genre, sortBy }) => {
   const navigate = useNavigate();
-  const moviesFiltered = useAppSelector((state) => getFilteredMoviesList(state)(genre));
-
-  // const moviesFiltered = useMemo(
-  //   () => ToolServices.moviesFilted(moviesList, genre),
-  //   [moviesList, genre],
-  // );
+  const moviesFiltered = useAppSelector((state) => getFilteredMoviesList(state)(genre, sortBy));
 
   return (
     <>
@@ -55,4 +50,5 @@ export default MoviesList;
 
 MoviesList.propTypes = {
   genre: PropTypes.string,
+  sortBy: PropTypes.string,
 };

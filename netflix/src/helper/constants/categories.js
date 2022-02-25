@@ -13,3 +13,10 @@ export const genres = [
   { key: 'Science Fiction', category: 'Science Fiction' },
   { key: 'Action', category: 'Action' },
 ];
+
+export const SortBY = {
+  TITLE_UP: 'Title up',
+  TITLE_DOWN: 'Title down',
+  RELEASE_UP: 'Year up',
+  RELEASe_DOWN: 'Year down',
+};
