@@ -1,30 +1,40 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
 import { Form, Input, Button } from 'antd';
 import { Netflix } from '../logo/logo';
+import { useDispatch } from 'react-redux';
+import { setCurrentUser } from '../../redux/actions';
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const setLoginState = (form) => dispatch(setCurrentUser(form));
+
+  const [form] = Form.useForm();
+
   const onFinish = (values) => {
-    console.log('Success:', values);
+    const submitData = { login: values.userId, password: values.password };
+    setLoginState(submitData);
+    navigate('/');
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+  const onReset = () => {
+    form.resetFields();
   };
 
-  const validateMessages = {
-    required: "'${name}' is required!",
-  };
+  const validateMessages = { required: "'${name}' is required!" };
 
   return (
     <div className="loginContainer">
+      <Netflix style={{ fontSize: '48px' }} />
       <div className="formLogin">
         <h1>LOG IN</h1>
         <Form
+          form={form}
           name="basic"
           wrapperCol={{ span: 18 }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           validateMessages={validateMessages}
         >
           <label>USER ID*</label>
@@ -32,8 +42,7 @@ export const LoginPage = () => {
             name="userId"
             rules={[
               { required: true, message: 'Please input your username!' },
-              { type: 'username', warningOnly: true },
-              { type: 'string', min: 6 },
+              { type: 'string', min: 3 },
             ]}
           >
             <Input />
@@ -44,7 +53,6 @@ export const LoginPage = () => {
             name="password"
             rules={[
               { required: true, message: 'Please input your password!' },
-              { type: 'password', warningOnly: true },
               { type: 'string', min: 6 },
             ]}
           >
@@ -52,7 +60,7 @@ export const LoginPage = () => {
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 0, span: 18 }}>
-            <Button key="back" className="buttonLogin">
+            <Button key="back" htmlType="button" className="buttonLogin" onClick={onReset}>
               RESET
             </Button>
             <Button type="primary" htmlType="submit" className="buttonLogin">
@@ -62,7 +70,6 @@ export const LoginPage = () => {
           <span style={{ color: '#fff' }}>*Mandatory</span>
         </Form>
       </div>
-      <Netflix style={{ marginTop: '60px', fontSize: '48px' }} />
     </div>
   );
 };

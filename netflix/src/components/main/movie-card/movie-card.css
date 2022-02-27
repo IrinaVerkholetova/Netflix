@@ -80,8 +80,12 @@
   opacity: 0.5;
 }
 
+.ant-dropdown {
+  z-index: 1;
+}
+
 .ant-dropdown-menu {
-  width: 100px;
+  width: 100%;
   background: #232323;
 }
 

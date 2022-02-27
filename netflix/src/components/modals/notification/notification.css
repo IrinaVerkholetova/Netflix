@@ -12,6 +12,9 @@
   color: #fff;
 }
 
-.anticon.ant-notification-notice-icon-success {
+.anticon.ant-notification-notice-icon-success, 
+.anticon.ant-notification-notice-icon-info, 
+.anticon.ant-notification-notice-icon-error, 
+.anticon.ant-notification-notice-icon-warning {
   color: #f65261;
 }
