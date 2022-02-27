@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import './header.css';
-import { Input, Tooltip } from 'antd';
+
+import { Tooltip } from 'antd';
 import { PlusOutlined, LoginOutlined, UserOutlined } from '@ant-design/icons';
+
 import { AddMovie } from '../modals/add-movie-modal';
 import { Netflix } from '../logo/logo';
+import { SearchMovie } from './search/search';
+
 import { Link } from 'react-router-dom';
+
 import { useSelector, shallowEqual } from 'react-redux';
 import { getCurrentUser } from './../../redux/selectors';
 
 export const Header = () => {
-  const { Search } = Input;
-
   const [visible, setVisible] = useState(false);
-
   const currentUser = useSelector(getCurrentUser, shallowEqual);
-
-  const onSearch = (value) => console.log(value);
 
   return (
     <div className="background">
       <div className="background__content">
-        <div className="header">
+        <div className="headerSection">
           <Netflix />
           <div>
             <Tooltip
@@ -48,14 +48,12 @@ export const Header = () => {
             )}
           </div>
         </div>
+
         {visible && <AddMovie visible={visible} setVisible={setVisible} />}
+
         <h1>FIND YOUR MOVIE</h1>
-        <div className="search">
-          <Search
-            placeholder="What do you want to watch?"
-            enterButton="SEARCH"
-            onSearch={onSearch}
-          />
+        <div className="headerSection">
+          <SearchMovie />
         </div>
       </div>
     </div>

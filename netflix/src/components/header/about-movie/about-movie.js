@@ -31,7 +31,7 @@ const AboutMovie = React.memo(() => {
 
   return (
     <div className="aboutMovieContainer">
-      <div className="header">
+      <div className="headerSection">
         <Netflix />
         <Button shape="circle" icon={<SearchOutlined />} />
       </div>

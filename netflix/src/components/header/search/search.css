@@ -1,0 +1,11 @@
+.search {
+  width: 100%;
+}
+ .search input {
+  height: 40px;
+}
+
+.resultFound{
+  display: flex;
+  color: #f65261;
+}

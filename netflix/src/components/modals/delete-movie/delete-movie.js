@@ -8,7 +8,7 @@ import { moviesThunkActions } from '../../../redux/thunks';
 import { useDispatch } from 'react-redux';
 
 import { Modal, Button } from 'antd';
-import { SuccessNotification } from '../successful-notification/successful-notification';
+import { Notification, StatusTypes } from '../notification/notification';
 
 export const DeleteMovie = ({ movieId, visible, setVisible }) => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export const DeleteMovie = ({ movieId, visible, setVisible }) => {
   const handleOk = (event) => {
     event.stopPropagation();
     const callback = () => {
-      SuccessNotification('The movie has been deleted from database successfully');
+      Notification('The movie has been deleted from database successfully', StatusTypes.SUCCESS);
     };
     deleteMovieAction(movieId, callback);
     setVisible(false);

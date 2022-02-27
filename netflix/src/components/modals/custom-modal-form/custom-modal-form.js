@@ -7,7 +7,7 @@ import { Modal, Button, Input, DatePicker, Select, InputNumber, Form } from 'ant
 import { useDispatch } from 'react-redux';
 
 import { genres } from '../../../helper/constants/categories';
-import { SuccessNotification } from '../successful-notification/successful-notification';
+import { Notification, StatusTypes } from '../notification/notification';
 
 export const CustomModalForm = ({
   action,
@@ -38,7 +38,7 @@ export const CustomModalForm = ({
   const onFinish = (values) => {
     const callback = () => {
       setVisible(false);
-      SuccessNotification(message);
+      Notification(message, StatusTypes.SUCCESS);
     };
     const submitData = title.includes('EDIT')
       ? { ...values, release_date: values.release_date._d, id: movie?.id }

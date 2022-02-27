@@ -4,7 +4,7 @@ h1 {
   font-size: 40px;
 }
 
-.header {
+.headerSection {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -35,32 +35,6 @@ h1 {
 .background__content {
   height: 396px;
   margin: 0px 60px;
-}
-
-.search {
-  margin: 38px 90px;
-}
-.search input {
-  background: rgba(50, 50, 50, 0.8);
-  border-color: transparent;
-  border-radius: 4px;
-  color: #ffffff;
-  width: 70%;
-  height: 57px;
-  font-size: 20px;
-}
-.search input:active,
-search input:focus {
-  border-color: transparent;
-}
-.search button {
-  background: #f65261;
-  border-color: transparent;
-  color: #ffffff;
-  border-radius: 4px;
-  width: 233px;
-  height: 57px;
-  font-size: 20px;
 }
 
 .addMovie {
