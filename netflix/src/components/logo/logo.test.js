@@ -13,8 +13,6 @@ describe('Netflix', () => {
   it('should be display footer by text', () => {
     const { container } = render(<Netflix />);
     screen.debug();
-    // const element = getByText('/netflix/i');
-    // screen.debug();
     expect(container.querySelector('.titleContainer')).toBeInTheDocument();
   });
 });
